@@ -1,0 +1,602 @@
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AyuAahar — Messages</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-[#FAFAF7] text-[#333333] antialiased min-h-screen [font-family:'Inter',ui-sans-serif,system-ui,-apple-system,Segoe_UI,Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif]">
+  <!-- Mobile Top Bar -->
+  <div class="md:hidden sticky top-0 z-40 border-b bg-[#F7F7FA]/80 backdrop-blur supports-[backdrop-filter]:bg-[#F7F7FA]/70 border-[#333333]/5">
+    <div class="px-4 h-14 flex items-center justify-between">
+      <button id="menuButton" class="inline-flex items-center justify-center rounded-md border px-2.5 py-2 hover:bg-white/80 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#8B82D3]/50 bg-[#F5F4F0] border-[#5a524c]/10" aria-label="Open sidebar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="menu" class="lucide lucide-menu w-5 h-5"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg>
+      </button>
+      <div class="flex items-center gap-2">
+        <span class="text-lg tracking-tight font-semibold">Ayu-Aahar</span>
+      </div>
+      <div class="w-9 h-9 rounded-full overflow-hidden ring-1 ring-black/10">
+        <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=128&h=128&fit=crop" alt="Profile" class="w-full h-full object-cover">
+      </div>
+    </div>
+  </div>
+
+  <div class="relative flex min-h-[calc(100vh-0px)]">
+    <!-- Overlay for mobile -->
+    <div id="overlay" class="fixed inset-0 z-30 bg-black/30 hidden md:hidden"></div>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-72 border-r shadow-sm transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-out bg-[#F5F4F0] border-[#333333]/5">
+      <div class="h-full flex flex-col">
+        <!-- Logo -->
+        <div class="h-16 px-5 flex items-center border-b border-[#333333]/5">
+          <div class="flex items-baseline gap-2">
+            <div class="inline-flex h-9 w-9 items-center justify-center rounded-md border text-sm font-medium tracking-tight text-[#333333] border-[#5a524c]/10 bg-[#F5F4F0]">
+              AA
+            </div>
+            <div class="flex flex-col leading-tight">
+              <span class="text-xl font-semibold tracking-tight">Ayu-Aahar</span>
+              <span class="text-xs text-[#888888]">Dietician Panel</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="flex-1 overflow-y-auto pt-4 pr-3 pb-4 pl-3">
+          <ul class="space-y-1">
+            <li>
+              <a href="#" class="group flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium hover:bg-[#F7F7FA] hover:ring-1 hover:ring-black/10 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#8B82D3]/40">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="layout-dashboard" class="lucide lucide-layout-dashboard w-5 h-5 text-green-600"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="group flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium hover:bg-[#F7F7FA] hover:ring-1 hover:ring-black/10 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#8B82D3]/40">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar" class="lucide lucide-calendar w-5 h-5 text-green-600"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
+                <span>Calendar</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="group flex items-center gap-3 ring-1 ring-[#8B82D3]/20 hover:ring-[#8B82D3]/30 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#8B82D3]/40 text-sm font-medium text-[#333333] bg-[#b2c0a8]/10 rounded-md pt-2 pr-3 pb-2 pl-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="messages-square" class="lucide lucide-messages-square w-5 h-5 text-green-600"><path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path><path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1"></path></svg>
+                <span>Messages</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="group flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium hover:bg-[#F7F7FA] hover:ring-1 hover:ring-black/10 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#8B82D3]/40">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="users" class="lucide lucide-users w-5 h-5 text-green-600"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                <span>Clients</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="group flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium hover:bg-[#F7F7FA] hover:ring-1 hover:ring-black/10 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#8B82D3]/40">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="chef-hat" class="lucide lucide-chef-hat w-5 h-5 text-green-600"><path d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z"></path><path d="M6 17h12"></path></svg>
+                <span>Meal Plans</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="group flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium hover:bg-[#F7F7FA] hover:ring-1 hover:ring-black/10 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#8B82D3]/40">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="bar-chart-3" class="lucide lucide-bar-chart-3 w-5 h-5 text-green-600"><path d="M3 3v16a2 2 0 0 0 2 2h16"></path><path d="M18 17V9"></path><path d="M13 17V5"></path><path d="M8 17v-3"></path></svg>
+                <span>Analytics</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="group flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium hover:bg-[#F7F7FA] hover:ring-1 hover:ring-black/10 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#8B82D3]/40">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="dumbbell" class="lucide lucide-dumbbell w-5 h-5 text-green-600"><path d="M17.596 12.768a2 2 0 1 0 2.829-2.829l-1.768-1.767a2 2 0 0 0 2.828-2.829l-2.828-2.828a2 2 0 0 0-2.829 2.828l-1.767-1.768a2 2 0 1 0-2.829 2.829z"></path><path d="m2.5 21.5 1.4-1.4"></path><path d="m20.1 3.9 1.4-1.4"></path><path d="M5.343 21.485a2 2 0 1 0 2.829-2.828l1.767 1.768a2 2 0 1 0 2.829-2.829l-6.364-6.364a2 2 0 1 0-2.829 2.829l1.768 1.767a2 2 0 0 0-2.828 2.829z"></path><path d="m9.6 14.4 4.8-4.8"></path></svg>
+                <span>Exercises Lib</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="group flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium hover:bg-[#F7F7FA] hover:ring-1 hover:ring-black/10 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#8B82D3]/40">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="sparkles" class="lucide lucide-sparkles w-5 h-5 text-green-600"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg>
+                <span>AI Tools</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Logout -->
+        <div class="border-t p-3 border-[#333333]/5">
+          <a href="#" class="group flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium hover:bg-[#F7F7FA] hover:ring-1 hover:ring-black/10 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#8B82D3]/40">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="log-out" class="lucide lucide-log-out w-5 h-5 text-green-600"><path d="m16 17 5-5-5-5"></path><path d="M21 12H9"></path><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path></svg>
+            <span>Logout</span>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <div class="flex-1 md:pl-72">
+      <!-- Header -->
+      <header class="sticky top-0 z-20 border-b bg-[#F7F7FA]/80 backdrop-blur supports-[backdrop-filter]:bg-[#F7F7FA]/70 border-[#333333]/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+          <div class="py-5 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <div class="flex items-center gap-3">
+              <h1 class="text-2xl sm:text-3xl tracking-tight font-semibold">Messages</h1>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:items-center gap-3 lg:gap-4">
+              <!-- Search -->
+              <div class="w-full sm:w-80">
+                <label class="sr-only" for="search">Search</label>
+                <div class="relative">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="search" class="lucide lucide-search absolute left-3 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-[#888888]"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg>
+                  <input id="search" type="text" placeholder="Search clients, plans..." class="w-full rounded-md border pl-10 pr-3 py-2.5 text-sm placeholder-[#888888] shadow-sm focus:border-[#8B82D3]/40 focus:ring-2 focus:ring-[#8B82D3]/30 outline-none bg-[#F5F4F0] border-[#5a524c]/10">
+                </div>
+              </div>
+              <!-- Profile -->
+              <div class="inline-flex items-center gap-3 rounded-md border px-3 py-2 shadow-sm hover:shadow transition bg-[#F5F4F0] border-[#5a524c]/10">
+                <div class="w-9 h-9 rounded-full overflow-hidden ring-1 ring-black/10">
+                  <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=128&h=128&fit=crop" alt="Dr. Adam Vasylenko" class="w-full h-full object-cover">
+                </div>
+                <div class="leading-tight">
+                  <div class="text-sm font-medium">Dr. Adam Vasylenko</div>
+                  <div class="text-xs text-[#888888]">Dietician</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <main>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+        <div class="rounded-lg shadow-sm" style="background-color:#FFFFFF; border:1px solid rgba(90,82,76,0.10);">
+          <!-- Tabs -->
+          <div class="px-4 sm:px-5" style="border-bottom:1px solid rgba(90,82,76,0.10); background:#FFFFFF;">
+            <div class="flex items-center gap-6">
+              <button data-tab="unread" class="tab-btn relative py-3 text-[14px] text-[#888888] hover:text-[#333333] transition">
+                <span>Unread conversations</span>
+                <span class="tab-underline absolute bottom-0 left-0 right-0 h-[2px] bg-transparent"></span>
+              </button>
+              <button data-tab="open" class="tab-btn relative py-3 text-[14px] text-[#333333] font-medium tracking-tight">
+                <span>Open conversations</span>
+                <span class="tab-underline absolute bottom-0 left-0 right-0 h-[2px]" style="background-color:#333333;"></span>
+              </button>
+              <button data-tab="archived" class="tab-btn relative py-3 text-[14px] text-[#888888] hover:text-[#333333] transition">
+                <span>Archived conversations</span>
+                <span class="tab-underline absolute bottom-0 left-0 right-0 h-[2px] bg-transparent"></span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
+            <!-- Conversation List -->
+            <aside class="md:col-span-4 lg:col-span-4" style="border-right:1px solid rgba(90,82,76,0.10);">
+              <div class="p-4 sm:p-5">
+                <div class="flex items-center justify-between">
+                  <!-- Filter dropdown -->
+                  <div class="relative">
+                    <button data-dropdown-btn="#ddClients" class="inline-flex items-center gap-2 h-9 px-3 rounded-md transition hover:bg-[#F7F7FA] hover:outline hover:outline-1 hover:outline-black/10" style="background-color:#FFFFFF; border:1px solid rgba(90,82,76,0.12)">
+                      <span class="text-[13px] font-medium">All clients</span>
+                      <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <div id="ddClients" class="absolute left-0 mt-1 w-44 bg-white rounded-md shadow-lg hidden" style="border:1px solid rgba(90,82,76,0.1);">
+                      <ul class="py-1">
+                        <li><button class="w-full text-left px-3 h-9 hover:bg-[#F7F7FA] text-[13px]">All clients</button></li>
+                        <li><button class="w-full text-left px-3 h-9 hover:bg-[#F7F7FA] text-[13px]">Follow Up</button></li>
+                        <li><button class="w-full text-left px-3 h-9 hover:bg-[#F7F7FA] text-[13px]">New</button></li>
+                        <li><button class="w-full text-left px-3 h-9 hover:bg-[#F7F7FA] text-[13px]">Archived</button></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- Search -->
+                  <div class="hidden sm:block flex-1"></div>
+                </div>
+
+                <!-- List -->
+                <ul id="conversationList" class="mt-3 divide-y" style="border-color:rgba(90,82,76,0.10);">
+                  <!-- Item 1 (active) -->
+                  <li>
+                    <button data-conv-id="1" class="conv-item w-full text-left px-3 py-3 rounded-md transition flex items-center gap-3 hover:bg-[#F7F7FA]" style="background-color:#F7F7FA;">
+                      <img src="https://images.unsplash.com/photo-1544006659-f0b21884ce1d?q=80&w=88&auto=format&fit=crop" alt="Example client" class="h-9 w-9 rounded-full object-cover ring-1" style="ring-color:rgba(0,0,0,0.05);">
+                      <div class="min-w-0 flex-1">
+                        <div class="flex items-center justify-between gap-2">
+                          <span class="truncate text-[14px] font-medium tracking-tight">Example client</span>
+                          <span class="text-[12px]" style="color:#888888;">07:16 PM</span>
+                        </div>
+                        <div class="flex items-center gap-2 mt-1">
+                          <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium" style="color:#c89143; background:rgba(200,145,67,0.10); border:1px solid rgba(200,145,67,0.25);">Follow Up</span>
+                          <span class="truncate text-[13px]" style="color:#888888;">Sure, please share the meal plan...</span>
+                        </div>
+                      </div>
+                      <i data-lucide="bookmark" class="w-4.5 h-4.5 text-black/60"></i>
+                    </button>
+                  </li>
+                  <!-- Item 2 -->
+                  <li class="pt-1">
+                    <button data-conv-id="2" class="conv-item w-full text-left px-3 py-3 rounded-md transition flex items-center gap-3 hover:bg-[#F7F7FA]">
+                      <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=88&auto=format&fit=crop" alt="Another client" class="h-9 w-9 rounded-full object-cover ring-1" style="ring-color:rgba(0,0,0,0.05);">
+                      <div class="min-w-0 flex-1">
+                        <div class="flex items-center justify-between gap-2">
+                          <span class="truncate text-[14px] font-medium tracking-tight">Another client</span>
+                          <span class="text-[12px]" style="color:#888888;">12:03 PM</span>
+                        </div>
+                        <div class="flex items-center gap-2 mt-1">
+                          <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium" style="color:#16a34a; background:rgba(22,163,74,0.10); border:1px solid rgba(22,163,74,0.20);">General</span>
+                          <span class="truncate text-[13px]" style="color:#888888;">Thanks! I’ll try that...</span>
+                        </div>
+                      </div>
+                      <i data-lucide="bookmark" class="w-4.5 h-4.5 text-black/60"></i>
+                    </button>
+                  </li>
+                  <!-- Item 3 -->
+                  <li class="pt-1">
+                    <button data-conv-id="3" class="conv-item w-full text-left px-3 py-3 rounded-md transition flex items-center gap-3 hover:bg-[#F7F7FA]">
+                      <img src="https://images.unsplash.com/photo-1519345511563-1b1b0b2a4a9e?q=80&w=88&auto=format&fit=crop" alt="Third client" class="h-9 w-9 rounded-full object-cover ring-1" style="ring-color:rgba(0,0,0,0.05);">
+                      <div class="min-w-0 flex-1">
+                        <div class="flex items-center justify-between gap-2">
+                          <span class="truncate text-[14px] font-medium tracking-tight">Third client</span>
+                          <span class="text-[12px]" style="color:#888888;">Yesterday</span>
+                        </div>
+                        <div class="flex items-center gap-2 mt-1">
+                          <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium" style="color:#c89143; background:rgba(200,145,67,0.10); border:1px solid rgba(200,145,67,0.25);">Follow Up</span>
+                          <span class="truncate text-[13px]" style="color:#888888;">Can we reschedule to Friday?</span>
+                        </div>
+                      </div>
+                      <i data-lucide="bookmark" class="w-4.5 h-4.5 text-black/60"></i>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </aside>
+
+            <!-- Chat Window -->
+            <section class="md:col-span-8 lg:col-span-8">
+              <!-- Chat Header -->
+              <div class="px-4 sm:px-5 py-3 flex items-center justify-between" style="border-bottom:1px solid rgba(90,82,76,0.10);">
+                <div class="flex items-center gap-3 min-w-0">
+                  <img id="chatAvatar" src="https://images.unsplash.com/photo-1544006659-f0b21884ce1d?q=80&w=88&auto=format&fit=crop" alt="Avatar" class="h-9 w-9 rounded-full object-cover ring-1" style="ring-color:rgba(0,0,0,0.05);">
+                  <div class="min-w-0">
+                    <div class="flex items-center gap-2">
+                      <span id="chatName" class="text-[14px] font-medium tracking-tight truncate">Example client</span>
+                      <span id="chatTag" class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium" style="color:#c89143; background:rgba(200,145,67,0.10); border:1px solid rgba(200,145,67,0.25);">Follow Up</span>
+                    </div>
+                    <div class="text-[12px]" style="color:#888888;">Last seen 07:20 PM</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <button class="inline-flex items-center justify-center h-9 w-9 rounded-md hover:bg-[#F7F7FA] hover:outline hover:outline-1 hover:outline-black/10 transition" aria-label="Search in chat">
+                    <i data-lucide="search" class="w-4.5 h-4.5"></i>
+                  </button>
+                  <button class="inline-flex items-center justify-center h-9 w-9 rounded-md hover:bg-[#F7F7FA] hover:outline hover:outline-1 hover:outline-black/10 transition" aria-label="More">
+                    <i data-lucide="more-horizontal" class="w-4.5 h-4.5"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Chat Messages -->
+              <div class="px-4 sm:px-5 py-4 overflow-y-auto" id="chatScroll" style="max-height: calc(100vh - 14rem);">
+                <!-- Day Separator -->
+                <div class="flex items-center justify-center my-3">
+                  <span class="px-3 py-1 rounded-full text-[12px]" style="color:#888888; background:#F5F4F0; border:1px solid rgba(90,82,76,0.10);">Today</span>
+                </div>
+                <!-- Messages container -->
+                <div id="messages" class="space-y-3">
+                  <!-- Incoming -->
+                  <div class="flex items-end gap-2 max-w-[80%]">
+                    <img src="https://images.unsplash.com/photo-1544006659-f0b21884ce1d?q=80&w=88&auto=format&fit=crop" class="h-8 w-8 rounded-full object-cover ring-1" style="ring-color:rgba(0,0,0,0.05);" alt="Client">
+                    <div>
+                      <div class="px-3 py-2 rounded-lg rounded-tl-sm" style="background:#F5F4F0; border:1px solid rgba(90,82,76,0.10);">
+                        <p class="text-[14px]">Hello! Could you share a simple 7-day meal plan?</p>
+                      </div>
+                      <div class="mt-1 text-[12px]" style="color:#888888;">07:15 PM</div>
+                    </div>
+                  </div>
+                  <!-- Outgoing -->
+                  <div class="flex justify-end">
+                    <div class="max-w-[80%]">
+                      <div class="px-3 py-2 rounded-lg rounded-tr-sm" style="background:rgba(200,145,67,0.15); border:1px solid rgba(90,82,76,0.10);">
+                        <p class="text-[14px]">Absolutely. Any dietary preferences I should consider?</p>
+                      </div>
+                      <div class="mt-1 flex items-center justify-end gap-1 text-[12px]" style="color:#888888;">
+                        <i data-lucide="check" class="w-3.5 h-3.5"></i><span>07:16 PM</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Incoming -->
+                  <div class="flex items-end gap-2 max-w-[80%]">
+                    <img src="https://images.unsplash.com/photo-1544006659-f0b21884ce1d?q=80&w=88&auto=format&fit=crop" class="h-8 w-8 rounded-full object-cover ring-1" style="ring-color:rgba(0,0,0,0.05);" alt="Client">
+                    <div>
+                      <div class="px-3 py-2 rounded-lg rounded-tl-sm" style="background:#F5F4F0; border:1px solid rgba(90,82,76,0.10);">
+                        <p class="text-[14px]">Vegetarian if possible. Also quick breakfast ideas!</p>
+                      </div>
+                      <div class="mt-1 text-[12px]" style="color:#888888;">07:18 PM</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Message Input -->
+              <div class="px-4 sm:px-5 py-3" style="border-top:1px solid rgba(90,82,76,0.10);">
+                <form id="messageForm" class="flex items-end gap-2">
+                  <div class="flex-1 relative">
+                    <textarea id="messageInput" rows="1" placeholder="Write a message..." class="w-full resize-none rounded-md pr-12 pl-3 py-2 outline-none focus:ring-2 transition text-[14px]" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.12); caret-color:#333333;"></textarea>
+                    <button type="button" id="attachBtn" class="absolute right-2 bottom-2 inline-flex items-center justify-center h-8 w-8 rounded-md hover:bg-[#F7F7FA] transition" aria-label="Attach">
+                      <i data-lucide="paperclip" class="w-4.5 h-4.5"></i>
+                    </button>
+                  </div>
+                  <button id="sendBtn" type="submit" class="h-10 w-10 rounded-full text-white flex items-center justify-center transition active:translate-y-px hover:outline hover:outline-1 hover:outline-black/10" style="background-color:#c89143;">
+                    <i data-lucide="send" class="w-4.5 h-4.5 text-white"></i>
+                  </button>
+                </form>
+                <div class="mt-2 text-[12px]" style="color:#888888;">Press Enter to send • Shift + Enter for new line</div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Floating Action Button -->
+  <button class="fixed right-5 bottom-5 h-12 w-12 rounded-full shadow-sm flex items-center justify-center transition hover:brightness-110 hover:outline hover:outline-1 hover:outline-black/10" aria-label="Support" style="background-color:#16a34a;">
+    <i data-lucide="message-circle" class="w-5.5 h-5.5 text-white"></i>
+  </button>
+
+  <script>
+    // Initialize icons
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) {
+        lucide.createIcons({ attrs: { 'stroke-width': 1.5 } });
+      }
+    });
+
+    // Sidebar toggle (mobile)
+    const sidebar = document.getElementById('sidebar');
+    const sidebarBackdrop = document.getElementById('sidebarBackdrop');
+    const menuBtn = document.getElementById('menuBtn');
+
+    function openSidebar() {
+      sidebar.classList.remove('-translate-x-full');
+      sidebarBackdrop.classList.remove('hidden');
+    }
+    function closeSidebar() {
+      sidebar.classList.add('-translate-x-full');
+      sidebarBackdrop.classList.add('hidden');
+    }
+    menuBtn && menuBtn.addEventListener('click', openSidebar);
+    sidebarBackdrop && sidebarBackdrop.addEventListener('click', closeSidebar);
+    // Close on Esc
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeSidebar();
+    });
+
+    // Sidebar active navigation
+    const navLinks = Array.from(document.querySelectorAll('[data-nav]'));
+    function setActiveNav(target) {
+      navLinks.forEach(a => {
+        a.style.backgroundColor = '';
+        a.style.border = '';
+        a.classList.remove('ring-1');
+      });
+      target.style.backgroundColor = '#F7F7FA';
+      target.style.border = '1px solid rgba(90,82,76,0.10)';
+      target.classList.add('ring-1');
+    }
+    navLinks.forEach(a => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        setActiveNav(a);
+      });
+    });
+
+    // Tabs switching
+    const tabButtons = Array.from(document.querySelectorAll('.tab-btn'));
+    function setActiveTab(key) {
+      tabButtons.forEach(btn => {
+        const underline = btn.querySelector('.tab-underline');
+        if (btn.dataset.tab === key) {
+          btn.style.color = '#333333';
+          btn.classList.add('font-medium');
+          underline && (underline.style.backgroundColor = '#333333');
+        } else {
+          btn.style.color = '#888888';
+          btn.classList.remove('font-medium');
+          underline && (underline.style.backgroundColor = 'transparent');
+        }
+      });
+    }
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => setActiveTab(btn.dataset.tab));
+    });
+
+    // Dropdown toggles (header + list filter + mobile)
+    function setupDropdown(btnSelector) {
+      const btn = document.querySelector(btnSelector);
+      if (!btn) return;
+      const targetSel = btn.getAttribute('data-dropdown-btn');
+      const menu = document.querySelector(targetSel);
+      if (!menu) return;
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('hidden');
+      });
+      document.addEventListener('click', (e) => {
+        if (!menu.classList.contains('hidden')) {
+          if (!menu.contains(e.target) && e.target !== btn) {
+            menu.classList.add('hidden');
+          }
+        }
+      });
+    }
+    setupDropdown('[data-dropdown-btn="#ddConversations"]');
+    setupDropdown('[data-dropdown-btn="#ddCategories"]');
+    setupDropdown('[data-dropdown-btn="#ddClients"]');
+
+    // Mobile header dropdown placeholders
+    document.getElementById('mobileConversationsBtn')?.addEventListener('click', () => alert('Change conversations filter'));
+    document.getElementById('mobileCategoriesBtn')?.addEventListener('click', () => alert('Change categories filter'));
+
+    // Conversations data
+    const conversations = {
+      1: {
+        id: 1,
+        name: 'Example client',
+        avatar: 'https://images.unsplash.com/photo-1544006659-f0b21884ce1d?q=80&w=88&auto=format&fit=crop',
+        tag: { text: 'Follow Up', color: '#c89143' },
+        messages: [
+          { from: 'in', text: 'Hello! Could you share a simple 7-day meal plan?', time: '07:15 PM' },
+          { from: 'out', text: 'Absolutely. Any dietary preferences I should consider?', time: '07:16 PM' },
+          { from: 'in', text: 'Vegetarian if possible. Also quick breakfast ideas!', time: '07:18 PM' }
+        ]
+      },
+      2: {
+        id: 2,
+        name: 'Another client',
+        avatar: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=88&auto=format&fit=crop',
+        tag: { text: 'General', color: '#16a34a' },
+        messages: [
+          { from: 'in', text: 'Is Greek yogurt okay for a high-protein snack?', time: '12:00 PM' },
+          { from: 'out', text: 'Yes, great choice! Add nuts or fruit for balance.', time: '12:02 PM' },
+          { from: 'in', text: 'Thanks! I’ll try that.', time: '12:03 PM' }
+        ]
+      },
+      3: {
+        id: 3,
+        name: 'Third client',
+        avatar: 'https://images.unsplash.com/photo-1519345511563-1b1b0b2a4a9e?q=80&w=88&auto=format&fit=crop',
+        tag: { text: 'Follow Up', color: '#c89143' },
+        messages: [
+          { from: 'in', text: 'Can we reschedule to Friday?', time: 'Yesterday' },
+          { from: 'out', text: 'Friday 3 PM works. Sending invite now.', time: 'Yesterday' }
+        ]
+      }
+    };
+
+    const conversationList = document.getElementById('conversationList');
+    const convItems = Array.from(document.querySelectorAll('.conv-item'));
+    const chatName = document.getElementById('chatName');
+    const chatAvatar = document.getElementById('chatAvatar');
+    const chatTag = document.getElementById('chatTag');
+    const messagesEl = document.getElementById('messages');
+    const chatScroll = document.getElementById('chatScroll');
+
+    function renderMessages(conv) {
+      messagesEl.innerHTML = '';
+      // Separator
+      const sep = document.createElement('div');
+      sep.className = 'flex items-center justify-center my-3';
+      sep.innerHTML = '<span class="px-3 py-1 rounded-full text-[12px]" style="color:#888888; background:#F5F4F0; border:1px solid rgba(90,82,76,0.10);">Today</span>';
+      messagesEl.appendChild(sep);
+
+      conv.messages.forEach(msg => {
+        if (msg.from === 'in') {
+          const wrap = document.createElement('div');
+          wrap.className = 'flex items-end gap-2 max-w-[80%]';
+          wrap.innerHTML = `
+            <img src="${conv.avatar}" class="h-8 w-8 rounded-full object-cover ring-1" style="ring-color:rgba(0,0,0,0.05);" alt="${conv.name}">
+            <div>
+              <div class="px-3 py-2 rounded-lg rounded-tl-sm" style="background:#F5F4F0; border:1px solid rgba(90,82,76,0.10);">
+                <p class="text-[14px]">${msg.text}</p>
+              </div>
+              <div class="mt-1 text-[12px]" style="color:#888888;">${msg.time}</div>
+            </div>`;
+          messagesEl.appendChild(wrap);
+        } else {
+          const wrap = document.createElement('div');
+          wrap.className = 'flex justify-end';
+          wrap.innerHTML = `
+            <div class="max-w-[80%]">
+              <div class="px-3 py-2 rounded-lg rounded-tr-sm" style="background:rgba(200,145,67,0.15); border:1px solid rgba(90,82,76,0.10);">
+                <p class="text-[14px]">${msg.text}</p>
+              </div>
+              <div class="mt-1 flex items-center justify-end gap-1 text-[12px]" style="color:#888888;">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 6 9 17l-5-5"/></svg>
+                <span>${msg.time}</span>
+              </div>
+            </div>`;
+          messagesEl.appendChild(wrap);
+        }
+      });
+      requestAnimationFrame(() => { chatScroll.scrollTop = chatScroll.scrollHeight; });
+    }
+
+    function setActiveConversation(id) {
+      convItems.forEach(item => {
+        item.style.backgroundColor = '';
+        item.style.border = '';
+      });
+      const activeItem = document.querySelector('[data-conv-id="'+id+'"]');
+      if (activeItem) {
+        activeItem.style.backgroundColor = '#F7F7FA';
+        activeItem.style.border = '1px solid rgba(90,82,76,0.10)';
+      }
+      const conv = conversations[id];
+      if (!conv) return;
+      chatName.textContent = conv.name;
+      chatAvatar.src = conv.avatar;
+      chatTag.textContent = conv.tag.text;
+      if (conv.tag.text === 'Follow Up') {
+        chatTag.style.color = '#c89143';
+        chatTag.style.background = 'rgba(200,145,67,0.10)';
+        chatTag.style.border = '1px solid rgba(200,145,67,0.25)';
+      } else {
+        chatTag.style.color = '#16a34a';
+        chatTag.style.background = 'rgba(22,163,74,0.10)';
+        chatTag.style.border = '1px solid rgba(22,163,74,0.20)';
+      }
+      renderMessages(conv);
+    }
+
+    convItems.forEach(item => {
+      item.addEventListener('click', () => {
+        setActiveConversation(item.getAttribute('data-conv-id'));
+        // Auto-close sidebar on mobile when picking a conversation
+        closeSidebar();
+      });
+    });
+
+    // Initial load
+    setActiveConversation('1');
+
+    // Send message
+    const form = document.getElementById('messageForm');
+    const input = document.getElementById('messageInput');
+
+    function sendCurrentMessage() {
+      const text = input.value.trim();
+      if (!text) return;
+      // Find active conversation id
+      const active = document.querySelector('.conv-item[style*="background-color: #F7F7FA"], .conv-item[style*="background-color:#F7F7FA"]') || document.querySelector('.conv-item[style*="background-color: #F7F7FA;"]');
+      const id = active ? active.getAttribute('data-conv-id') : '1';
+      conversations[id].messages.push({ from: 'out', text, time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) });
+      input.value = '';
+      renderMessages(conversations[id]);
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      sendCurrentMessage();
+    });
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendCurrentMessage();
+      }
+    });
+
+    // Hover micro-interactions: add subtle outline on focus/hover for buttons
+    document.querySelectorAll('button, a').forEach(el => {
+      el.addEventListener('mouseenter', () => { el.style.outlineColor = 'rgba(0,0,0,0.10)'; });
+      el.addEventListener('mouseleave', () => { el.style.outlineColor = ''; });
+    });
+
+    // Primary button hover states
+    function applyPrimaryHover(btn) {
+      btn.addEventListener('mouseenter', () => { btn.style.backgroundColor = '#a97b39'; });
+      btn.addEventListener('mouseleave', () => { btn.style.backgroundColor = '#c89143'; });
+    }
+    document.querySelectorAll('button').forEach(btn => {
+      const bg = getComputedStyle(btn).backgroundColor;
+      // Apply only to buttons with primary color
+      if (btn.style.backgroundColor === 'rgb(200, 145, 67)' || btn.style.backgroundColor === '#c89143') {
+        applyPrimaryHover(btn);
+      }
+    });
+  </script>
+</body></html>

@@ -1,0 +1,436 @@
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AyuAahar — Calendar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Geist', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    #chart-line {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: draw-line 2s ease-out forwards;
+    }
+    @keyframes draw-line { to { stroke-dashoffset: 0; } }
+
+    /* --- CSS FIXES FOR COLLAPSED SIDEBAR --- */
+    .sidebar-collapsed .sidebar-header-logo,
+    .sidebar-collapsed nav span,
+    .sidebar-collapsed .sidebar-logout span {
+      display: none;
+    }
+    .sidebar-collapsed .sidebar-header {
+        justify-content: center;
+    }
+    .sidebar-collapsed nav a,
+    .sidebar-collapsed .sidebar-logout a {
+      justify-content: center;
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="antialiased font-sans text-[15px] leading-6" style="font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji'; background-color:#FAFAF7; color:#333333;">
+  
+  <div class="relative flex min-h-screen">
+    <div id="overlay" class="fixed inset-0 z-30 bg-black/30 hidden md:hidden"></div>
+
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-72 border-r shadow-sm transform -translate-x-full md:translate-x-0 transition-all duration-300 ease-out bg-[#f0f2e9]/90 backdrop-blur-sm border-[#e6d3b3]/60">
+      <div class="h-full flex flex-col">
+        <div class="h-16 px-5 flex items-center justify-between border-b border-[#e6d3b3]/60 sidebar-header">
+          <div class="flex items-baseline gap-2 sidebar-header-logo">
+            <div class="inline-flex h-9 w-9 items-center justify-center rounded-md border text-sm font-medium tracking-tight border-[#e6d3b3]/60 bg-[#f9f8f4]">
+              AA
+            </div>
+            <div class="flex flex-col leading-tight">
+              <span class="font-heading text-xl font-semibold tracking-tight">AyuAahar</span>
+              <span class="text-xs text-gray-500">Dietician Panel</span>
+            </div>
+          </div>
+           <button id="closeSidebarButton" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-full hover:bg-black/5 transition" aria-label="Close sidebar">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+          
+          <button id="sidebarCollapseButton" class="hidden md:inline-flex items-center justify-center h-10 w-10 rounded-full hover:bg-black/5 transition" aria-label="Collapse sidebar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-panel-left-close w-5 h-5"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M9 3v18"></path><path d="m16 15-3-3 3-3"></path></svg>
+          </button>
+           <button id="sidebarExpandButton" class="hidden md:hidden items-center justify-center h-10 w-10 rounded-full hover:bg-black/5 transition" aria-label="Expand sidebar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-panel-right-close w-5 h-5"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M15 3v18"></path><path d="m8 15 3-3-3-3"></path></svg>
+          </button>
+        </div>
+
+        <nav class="flex-1 overflow-y-auto pt-4 pr-3 pb-4 pl-3">
+          <ul class="space-y-1">
+            <li>
+              <a href="#" class="group flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-[#4a403a]/5 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#a3b98b] transition-all duration-200 hover:scale-105">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-[#4a403a]">
+                  <rect width="7" height="9" x="3" y="3" rx="1"></rect>
+                  <rect width="7" height="5" x="14" y="3" rx="1"></rect>
+                  <rect width="7" height="9" x="14" y="12" rx="1"></rect>
+                  <rect width="7" height="5" x="3" y="16" rx="1"></rect>
+                </svg>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="group flex items-center gap-3 ring-1 ring-[#a3b98b]/50 hover:ring-[#a3b98b]/70 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#a3b98b] text-sm font-medium bg-[#a3b98b]/20 rounded-md pt-2 pr-3 pb-2 pl-3 transition-all duration-200 hover:scale-105">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-[#4a403a]">
+                  <path d="M8 2v4"></path>
+                  <path d="M16 2v4"></path>
+                  <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                  <path d="M3 10h18"></path>
+                </svg>
+                <span>Calendar</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="group flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-[#4a403a]/5 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#a3b98b] transition-all duration-200 hover:scale-105">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-[#4a403a]">
+                  <path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                  <path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1"></path>
+                </svg>
+                <span>Messages</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="group flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-[#4a403a]/5 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#a3b98b] transition-all duration-200 hover:scale-105">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-[#4a403a]">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                  <path d="M16 3.128a4 4 0 0 1 0 7.744"></path>
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                </svg>
+                <span>Clients</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="group flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-[#4a403a]/5 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#a3b98b] transition-all duration-200 hover:scale-105">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-[#4a403a]">
+                  <path d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z"></path>
+                  <path d="M6 17h12"></path>
+                </svg>
+                <span>Meal Plans</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="group flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-[#4a403a]/5 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#a3b98b] transition-all duration-200 hover:scale-105">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-[#4a403a]">
+                  <path d="M3 3v16a2 2 0 0 0 2 2h16"></path>
+                  <path d="M18 17V9"></path>
+                  <path d="M13 17V5"></path>
+                  <path d="M8 17v-3"></path>
+                </svg>
+                <span>Analytics</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="group flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-[#4a403a]/5 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#a3b98b] transition-all duration-200 hover:scale-105">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-[#4a403a]">
+                  <path d="M17.596 12.768a2 2 0 1 0 2.829-2.829l-1.768-1.767a2 2 0 0 0 2.828-2.829l-2.828-2.828a2 2 0 0 0-2.829 2.828l-1.767-1.768a2 2 0 1 0-2.829 2.829z"></path>
+                  <path d="m2.5 21.5 1.4-1.4"></path>
+                  <path d="m20.1 3.9 1.4-1.4"></path>
+                  <path d="M5.343 21.485a2 2 0 1 0 2.829-2.828l1.767 1.768a2 2 0 1 0 2.829-2.829l-6.364-6.364a2 2 0 1 0-2.829 2.829l1.768 1.767a2 2 0 0 0-2.828 2.829z"></path>
+                  <path d="m9.6 14.4 4.8-4.8"></path>
+                </svg>
+                <span>Exercises Lib</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="group flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-[#4a403a]/5 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#a3b98b] transition-all duration-200 hover:scale-105">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-[#4a403a]">
+                  <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path>
+                  <path d="M20 2v4"></path>
+                  <path d="M22 4h-4"></path>
+                  <circle cx="4" cy="20" r="2"></circle>
+                </svg>
+                <span>AI Tools</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="border-t p-3 border-[#e6d3b3]/60 sidebar-logout">
+          <a href="#" class="group flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-[#4a403a]/5 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#a3b98b] transition-all duration-200 hover:scale-105">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-[#4a403a]">
+              <path d="m16 17 5-5-5-5"></path>
+              <path d="M21 12H9"></path>
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            </svg>
+            <span>Logout</span>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <div id="mainContent" class="flex-1 md:pl-72 transition-all duration-300 ease-out">
+      <div class="md:hidden sticky top-0 z-30 border-b bg-[#f9f8f4]/80 backdrop-blur-sm border-[#e6d3b3]/60">
+          <div class="px-4 h-14 flex items-center justify-between">
+              <button id="menuButton" class="inline-flex items-center justify-center h-10 w-10 rounded-full hover:bg-black/5 transition" aria-label="Open sidebar">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+              </button>
+              <span class="font-heading text-lg tracking-tight font-semibold">AyuAahar</span>
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=128&h=128&fit=crop" alt="User Avatar" class="w-9 h-9 rounded-full object-cover">
+          </div>
+      </div>
+
+      <header class="sticky top-0 z-20 bg-[#f9f8f4]/80 backdrop-blur-sm border-b border-[#e6d3b3]/60 hidden md:block">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="flex justify-between items-center h-16">
+                  <div class="flex items-center gap-3">
+                      <h1 class="font-heading text-2xl tracking-tight font-semibold text-[#4a403a]">Calendar</h1>
+                  </div>
+                  <div class="flex items-center gap-4">
+                      <div class="hidden sm:block">
+                          <label class="sr-only" for="search">Search</label>
+                          <div class="relative">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search absolute left-3 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-gray-400"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg>
+                              <input id="search" type="text" placeholder="Search..." class="w-full sm:w-48 lg:w-64 rounded-md border pl-10 pr-3 h-10 text-sm placeholder-gray-400 shadow-sm focus:border-[#a3b98b] focus:ring-2 focus:ring-[#a3b98b]/50 outline-none bg-[#f0f2e9] border-[#e6d3b3] transition-all duration-200">
+                          </div>
+                      </div>
+                      <div class="inline-flex items-center gap-3 rounded-md border px-3 h-10 shadow-sm bg-white border-[#e6d3b3]/60 cursor-pointer">
+                          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=128&h=128&fit=crop" alt="Dr. Adam Vasylenko" class="w-8 h-8 rounded-full object-cover">
+                          <div class="hidden md:block leading-tight">
+                              <div class="text-sm font-medium">Dr. Adam Vasylenko</div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </header>
+
+      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <button class="inline-flex items-center gap-2 px-4 sm:px-5 h-10 rounded-md text-white shadow-sm transition active:translate-y-px" style="background-color:#c89143;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="plus" class="lucide lucide-plus w-4 h-4"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+              <span class="text-[14px] font-medium tracking-tight">Create</span>
+            </button>
+          </div>
+          <div class="flex items-center gap-2">
+            <button class="inline-flex items-center justify-center h-10 w-10 rounded-md hover:bg-black/5 hover:outline hover:outline-1 hover:outline-black/10 transition" aria-label="Print">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="printer" class="lucide lucide-printer w-5 h-5"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"></path><rect x="6" y="14" width="12" height="8" rx="1"></rect></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <section class="lg:col-span-8">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <div class="flex items-center gap-4">
+                  <span class="text-[22px] tracking-tight font-medium text-slate-600">September 2025</span>
+                  <div class="flex items-center">
+                      <button class="inline-flex items-center justify-center h-9 w-9 rounded-full hover:bg-black/5 transition" aria-label="Previous">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="m15 18-6-6 6-6"></path></svg>
+                      </button>
+                      <button class="inline-flex items-center justify-center h-9 w-9 rounded-full hover:bg-black/5 transition" aria-label="Next">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="m9 18 6-6-6-6"></path></svg>
+                      </button>
+                  </div>
+                   <button class="inline-flex items-center justify-center h-9 px-4 rounded-md text-[13px] font-medium border border-slate-300 hover:bg-slate-50 transition">Today</button>
+                </div>
+                <div class="flex items-center border border-slate-300 rounded-md p-1">
+                  <button class="inline-flex items-center h-8 px-3 rounded-md text-[13px] hover:bg-slate-100 transition">Day</button>
+                  <button class="inline-flex items-center h-8 px-3 rounded-md text-[13px] font-medium transition bg-[#a3b98b]/20 text-[#333]">Week</button>
+                  <button class="inline-flex items-center h-8 px-3 rounded-md text-[13px] hover:bg-slate-100 transition">Month</button>
+                </div>
+              </div>
+            
+            <div class="mt-4 border-t border-l border-slate-200 bg-white shadow-sm rounded-lg">
+               <div class="grid" style="grid-template-columns: 60px repeat(7, minmax(0, 1fr));">
+                  <div class="border-r border-slate-200"></div>
+                  <div class="text-center py-2 border-b border-r border-slate-200">
+                      <span class="text-[11px] font-medium text-slate-500">SUN</span>
+                      <p class="text-2xl mt-1 text-slate-500">14</p>
+                  </div>
+                  <div class="text-center py-2 border-b border-r border-slate-200">
+                      <span class="text-[11px] font-medium text-slate-500">MON</span>
+                      <p class="text-2xl mt-1">15</p>
+                  </div>
+                  <div class="text-center py-2 border-b border-r border-slate-200">
+                      <span class="text-[11px] font-medium text-slate-500">TUE</span>
+                      <p class="text-2xl mt-1">16</p>
+                  </div>
+                  <div class="text-center py-2 border-b border-r border-slate-200">
+                      <span class="text-[11px] font-medium text-slate-500">WED</span>
+                      <p class="text-2xl mt-1">17</p>
+                  </div>
+                  <div class="text-center py-2 border-b border-r border-slate-200">
+                      <span class="text-[11px] font-medium text-slate-500">THU</span>
+                      <p class="text-2xl mt-1">18</p>
+                  </div>
+                  <div class="text-center py-2 border-b border-r border-slate-200">
+                      <span class="text-[11px] font-medium text-slate-500">FRI</span>
+                      <p class="text-2xl mt-1">19</p>
+                  </div>
+                  <div class="text-center py-2 border-b border-r border-slate-200 bg-[#a3b98b]/10">
+                      <span class="text-[11px] font-medium" style="color:#5f6e4c">SAT</span>
+                      <p class="text-2xl mt-1 h-9 w-9 flex items-center justify-center mx-auto rounded-full bg-[#a3b98b] text-white">20</p>
+                  </div>
+              </div>
+
+              <div class="flex h-[896px] overflow-y-auto">
+                  <div class="w-[60px] flex-shrink-0 text-right text-[11px] text-slate-400">
+                      <div class="h-12 -mt-4 pr-2 pt-1">All day</div>
+                      <div class="h-14 -mt-2 pr-2">6 AM</div><div class="h-14 -mt-2 pr-2">7 AM</div><div class="h-14 -mt-2 pr-2">8 AM</div><div class="h-14 -mt-2 pr-2">9 AM</div><div class="h-14 -mt-2 pr-2">10 AM</div><div class="h-14 -mt-2 pr-2">11 AM</div><div class="h-14 -mt-2 pr-2">12 PM</div><div class="h-14 -mt-2 pr-2">1 PM</div><div class="h-14 -mt-2 pr-2">2 PM</div><div class="h-14 -mt-2 pr-2">3 PM</div><div class="h-14 -mt-2 pr-2">4 PM</div><div class="h-14 -mt-2 pr-2">5 PM</div><div class="h-14 -mt-2 pr-2">6 PM</div><div class="h-14 -mt-2 pr-2">7 PM</div><div class="h-14 -mt-2 pr-2">8 PM</div>
+                  </div>
+
+                  <div class="grid grid-cols-7 flex-1 relative">
+                      <div class="border-r border-slate-200"><div class="h-12 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div></div>
+                      <div class="border-r border-slate-200 relative px-1"><div class="h-12 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="absolute w-full left-0 p-1" style="top: 236px; height: 84px;"><div class="bg-[#a3b98b]/20 text-[#333] rounded-lg h-full p-2"><p class="text-xs font-semibold">Follow-up: Ana Gomez</p><p class="text-[11px]">10:30 - 11:15 AM</p></div></div></div>
+                      <div class="border-r border-slate-200 relative px-1"><div class="h-12 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="absolute w-full left-0 p-1" style="top: 404px; height: 56px;"><div class="bg-amber-100/60 text-amber-900 rounded-lg h-full p-2"><p class="text-xs font-semibold">New Client: Mark Evans</p><p class="text-[11px]">2:00 - 3:00 PM</p></div></div></div>
+                      <div class="border-r border-slate-200"><div class="h-12 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div></div>
+                      <div class="border-r border-slate-200 relative px-1"><div class="h-12 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="absolute w-full left-0 p-1" style="top: 124px; height: 112px;"><div class="bg-slate-200/60 text-slate-800 rounded-lg h-full p-2"><p class="text-xs font-semibold">Team Sync</p><p class="text-[11px]">8:00 - 10:00 AM</p></div></div></div>
+                      <div class="border-r border-slate-200 relative px-1"><div class="h-12 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div></div>
+                      <div class="border-r border-slate-200 relative bg-[#a3b98b]/10"><div class="h-12 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div><div class="h-14 border-b border-slate-200"></div></div>
+                      
+                      <div class="absolute w-full h-px" style="top: 23px; grid-column: 1 / -1;">
+                          <div class="relative h-full w-full">
+                              <div class="absolute -left-1.5 -top-1 w-3 h-3 rounded-full bg-red-500 ring-2 ring-white"></div>
+                              <div class="absolute left-0 top-1/2 w-full border-t border-red-500"></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </section>
+
+          <aside class="lg:col-span-4 space-y-6">
+            <div class="rounded-lg p-4 sm:p-5 shadow-sm" style="background-color:#ffffff; border:1px solid rgba(90,82,76,0.10);">
+              <div class="flex items-start justify-between">
+                <h2 class="text-[18px] tracking-tight font-medium">Appointment in progress</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" class="lucide lucide-activity w-5 h-5" style="color:#16a34a;"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"></path></svg>
+              </div>
+              <div class="mt-4 flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1621619856624-42fd193a0661?w=100&q=80" alt="Client" class="h-10 w-10 rounded-full object-cover ring-1 ring-black/5">
+                <div class="flex flex-col">
+                  <span class="text-[14px] font-medium tracking-tight">Ravi Kumar</span>
+                  <span class="text-[12px]" style="color:#888888;">September 19 | 03:30 PM - 04:00 PM</span>
+                </div>
+              </div>
+              <div class="mt-4 flex items-center gap-2">
+                <button class="inline-flex items-center gap-2 px-4 h-10 rounded-md text-white shadow-sm transition active:translate-y-px" style="background-color:#c89143;">
+                  <span class="text-[14px] font-medium tracking-tight py-1">Finish appointment</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle" class="lucide lucide-check-circle w-4 h-4"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+                </button>
+                <button class="inline-flex items-center gap-2 px-3 h-10 rounded-md transition hover:bg-black/5 hover:outline hover:outline-1 hover:outline-black/10">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="play" class="lucide lucide-play w-4 h-4"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path></svg>
+                  <span class="text-[14px]">Resume</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="rounded-lg p-4 sm:p-5 space-y-4" style="background-color:#F5F4F0; border:1px solid rgba(90,82,76,0.10);">
+              <h3 class="text-[18px] tracking-tight font-medium">Set up your calendar</h3>
+
+              <div class="rounded-lg p-4 flex items-center gap-3 sm:gap-4" style="background-color:#F7F7FA; border:1px solid rgba(90,82,76,0.10);">
+                <div class="h-12 w-12 rounded-md flex items-center justify-center" style="background:#ffffff; border:1px dashed rgba(90,82,76,0.20);">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="clock" class="lucide lucide-clock w-6 h-6"><path d="M12 6v6l4 2"></path><circle cx="12" cy="12" r="10" class=""></circle></svg>
+                </div>
+                <div class="flex-1">
+                  <p class="text-[14px]">Set your availability to start receiving bookings.</p>
+                  <button class="mt-1 inline-flex items-center gap-1.5 text-[13px] font-medium hover:underline" style="color:#c89143;">
+                    Set your working hours
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right w-4 h-4"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="rounded-lg p-4 flex items-start gap-3" style="background-color:#F5F4F0; border:1px solid rgba(90,82,76,0.10);">
+                <div class="h-8 w-8 rounded-md flex items-center justify-center" style="background:#ffffff; border:1px solid rgba(90,82,76,0.10);">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-4 h-4" style="color:#16a34a;"><path d="M20 6 9 17l-5-5"></path></svg>
+                </div>
+                <div class="flex-1">
+                  <p class="text-[14px]">Good! You have defined your workplace!</p>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </main>
+    </div>
+  </div>
+  
+  <script>
+    // Mobile sidebar toggle
+    const mobileSidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    const menuButton = document.getElementById('menuButton');
+    const closeSidebarButton = document.getElementById('closeSidebarButton');
+
+    function openSidebar() {
+      if (mobileSidebar && overlay) {
+        mobileSidebar.classList.remove('-translate-x-full');
+        overlay.classList.remove('hidden');
+      }
+    }
+    function closeSidebar() {
+      if (mobileSidebar && overlay) {
+        mobileSidebar.classList.add('-translate-x-full');
+        overlay.classList.add('hidden');
+      }
+    }
+
+    if (menuButton) {
+      menuButton.addEventListener('click', openSidebar);
+    }
+    if (closeSidebarButton) {
+      closeSidebarButton.addEventListener('click', closeSidebar);
+    }
+    if (overlay) {
+      overlay.addEventListener('click', closeSidebar);
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeSidebar();
+      }
+    });
+
+    // --- FINAL WORKING DESKTOP SIDEBAR TOGGLE SCRIPT ---
+    const sidebar = document.getElementById('sidebar');
+    const mainContent = document.getElementById('mainContent');
+    const sidebarCollapseButton = document.getElementById('sidebarCollapseButton');
+    const sidebarExpandButton = document.getElementById('sidebarExpandButton');
+
+    function collapseSidebar() {
+        sidebar.classList.add('sidebar-collapsed');
+        sidebar.classList.remove('w-72');
+        sidebar.classList.add('w-20');
+        
+        mainContent.classList.remove('md:pl-72');
+        mainContent.classList.add('md:pl-20');
+
+        sidebarCollapseButton.classList.add('hidden');
+        sidebarExpandButton.classList.remove('hidden');
+    }
+
+    function expandSidebar() {
+        sidebar.classList.remove('sidebar-collapsed');
+        sidebar.classList.remove('w-20');
+        sidebar.classList.add('w-72');
+
+        mainContent.classList.remove('md:pl-20');
+        mainContent.classList.add('md:pl-72');
+
+        sidebarExpandButton.classList.add('hidden');
+        sidebarCollapseButton.classList.remove('hidden');
+    }
+
+    if (sidebarCollapseButton && sidebarExpandButton) {
+      sidebarCollapseButton.addEventListener('click', collapseSidebar);
+      sidebarExpandButton.addEventListener('click', expandSidebar);
+    }
+  </script>
+
+</body></html>
