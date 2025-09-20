@@ -1,0 +1,1239 @@
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AyuAahar — Client Profile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="antialiased min-h-screen" style="background-color:#FAFAF7; color:#333333; font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';">
+  <!-- Fixed Top Navigation -->
+  <header class="fixed top-0 inset-x-0 z-50">
+    <div class="w-full" style="height:8px; background: linear-gradient(90deg, #f5f4f0, #ffffff);"></div>
+    <div class="w-full backdrop-blur supports-[backdrop-filter]:bg-white/80 bg-white/90" style="border-bottom: 1px solid rgba(90, 82, 76, 0.1);">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="h-16 flex items-center justify-between">
+          <!-- Left: Brand -->
+          <div class="flex items-center gap-3">
+            <div class="h-8 w-8 rounded-md flex items-center justify-center" style="background-color:#c89143; color:#ffffff;">
+              <span class="text-sm font-semibold tracking-tight">AA</span>
+            </div>
+            <div class="hidden sm:flex items-center gap-6">
+              <span class="text-sm font-medium tracking-tight" style="color:#333333;">AyuAahar</span>
+            </div>
+          </div>
+          <!-- Right: Actions -->
+          <div class="flex items-center gap-3">
+            <button class="hidden sm:inline-flex items-center gap-2 rounded-md px-3.5 py-2 text-sm font-medium transition-colors" style="background-color:#c89143; color:#ffffff;" onmouseover="this.style.backgroundColor='#a97b39'" onmouseout="this.style.backgroundColor='#c89143'">
+              <i data-lucide="plus" class="h-4 w-4"></i>
+              New
+            </button>
+            <button class="inline-flex items-center justify-center rounded-md w-9 h-9 md:hidden transition-colors" style="border:1px solid rgba(90, 82, 76, 0.1); background-color:#FFFFFF;">
+              <i data-lucide="menu" class="h-5 w-5" style="color:#333333;"></i>
+            </button>
+            <div class="hidden md:flex items-center gap-3">
+              <button class="inline-flex items-center gap-2 rounded-md px-3.5 py-2 text-sm font-medium transition-colors" style="border:1px solid rgba(90, 82, 76, 0.1); background-color:#FFFFFF; color:#333333;">
+                <i data-lucide="bell" class="h-4 w-4" style="color:#888888;"></i>
+                Alerts
+              </button>
+              <div class="h-8 w-8 rounded-full overflow-hidden ring-1" style="--tw-ring-color: rgba(90, 82, 76, 0.1);">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&amp;w=120&amp;auto=format&amp;fit=crop" alt="User avatar" class="h-full w-full object-cover">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-24">
+    <!-- Page Header: Client -->
+    <section class="rounded-lg p-4 sm:p-6" style="background-color:#FFFFFF; border:1px solid rgba(90, 82, 76, 0.1);">
+      <div class="flex items-start sm:items-center justify-between gap-4">
+        <div class="flex items-start sm:items-center gap-4">
+          <div class="h-16 w-16 sm:h-20 sm:w-20 rounded-full overflow-hidden ring-1" style="--tw-ring-color: rgba(90, 82, 76, 0.1);">
+            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&amp;w=200&amp;auto=format&amp;fit=crop" alt="Client avatar" class="h-full w-full object-cover">
+          </div>
+          <div class="min-w-0">
+            <h1 class="text-2xl sm:text-3xl font-semibold tracking-tight" style="color:#333333;">Example client</h1>
+            <p class="text-sm mt-1" style="color:#888888;">DOB: 1992-08-15 • ID: CL-000214</p>
+            <div class="flex flex-wrap items-center gap-2 mt-2">
+              <span class="inline-flex items-center rounded px-2 py-0.5 text-xs" style="background-color:#FAFAF7; color:#888888; border:1px solid rgba(90,82,76,0.1);">Active</span>
+              <span class="inline-flex items-center rounded px-2 py-0.5 text-xs" style="background-color:#FAFAF7; color:#888888; border:1px solid rgba(90,82,76,0.1);">Premium</span>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button class="inline-flex items-center justify-center rounded-md w-9 h-9 transition-colors" title="Edit" style="border:1px solid rgba(90,82,76,0.1); background-color:#FFFFFF; color:#333333;">
+            <i data-lucide="pencil" class="h-4.5 w-4.5"></i>
+          </button>
+          <button class="inline-flex items-center justify-center rounded-md w-9 h-9 transition-colors" title="Message" style="border:1px solid rgba(90,82,76,0.1); background-color:#FFFFFF; color:#333333;">
+            <i data-lucide="message-circle" class="h-4.5 w-4.5"></i>
+          </button>
+          <button class="inline-flex items-center justify-center rounded-md w-9 h-9 transition-colors" title="Delete" style="border:1px solid rgba(90,82,76,0.1); background-color:#FFFFFF; color:#333333;">
+            <i data-lucide="trash-2" class="h-4.5 w-4.5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="mt-6">
+        <div id="tabbar" class="flex gap-4 sm:gap-6 overflow-x-auto">
+          <button data-tab="information" class="shrink-0 pb-3 text-sm font-medium tracking-tight border-b-2" style="color:#333333; border-bottom-color:#c89143;">Information</button>
+          <button data-tab="measurements" class="shrink-0 pb-3 text-sm font-medium border-b-2" style="color:#888888; border-bottom-color:transparent;">Measurements</button>
+          <button data-tab="planning" class="shrink-0 pb-3 text-sm font-medium border-b-2" style="color:#888888; border-bottom-color:transparent;">Planning</button>
+          <button data-tab="meals" class="shrink-0 pb-3 text-sm font-medium border-b-2" style="color:#888888; border-bottom-color:transparent;">Meals</button>
+          <button data-tab="recommendations" class="shrink-0 pb-3 text-sm font-medium border-b-2" style="color:#888888; border-bottom-color:transparent;">Recommendations</button>
+          <button data-tab="analysis" class="shrink-0 pb-3 text-sm font-medium border-b-2" style="color:#888888; border-bottom-color:transparent;">Analysis</button>
+          <button data-tab="deliverables" class="shrink-0 pb-3 text-sm font-medium border-b-2" style="color:#888888; border-bottom-color:transparent;">Deliverables</button>
+        </div>
+        <div class="w-full" style="border-bottom:1px solid rgba(90, 82, 76, 0.1);"></div>
+      </div>
+    </section>
+
+    <!-- Panels -->
+    <section id="panels" class="mt-6 space-y-6">
+      <!-- Information -->
+      <div data-panel="information">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <!-- Left: Accordions -->
+          <div class="lg:col-span-2 space-y-4">
+            <!-- Consultation Details -->
+            <div class="rounded-lg" style="background-color:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+              <button data-acc-btn class="w-full flex items-center justify-between px-4 sm:px-5 py-3">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="calendar-check" class="h-4.5 w-4.5" style="color:#c89143;"></i>
+                  <h3 class="text-base font-medium tracking-tight" style="color:#333333;">Consultation Details</h3>
+                </div>
+                <i data-lucide="chevron-down" class="h-5 w-5 transition-transform"></i>
+              </button>
+              <div data-acc-panel class="px-4 sm:px-5 pb-4 space-y-4">
+                <div>
+                  <label class="block text-sm mb-1" style="color:#888888;">Reason for appointment</label>
+                  <textarea class="w-full rounded-md px-3 py-2 text-sm" rows="3" style="background:#FFFFFF; color:#333333; border:1px solid rgba(90,82,76,0.1);" placeholder="Describe the main reason"></textarea>
+                </div>
+                <div>
+                  <label class="block text-sm mb-1" style="color:#888888;">Expectations</label>
+                  <textarea class="w-full rounded-md px-3 py-2 text-sm" rows="3" style="background:#FFFFFF; color:#333333; border:1px solid rgba(90,82,76,0.1);" placeholder="What outcomes are expected?"></textarea>
+                </div>
+              </div>
+            </div>
+            <!-- Personal and social history -->
+            <div class="rounded-lg" style="background-color:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+              <button data-acc-btn class="w-full flex items-center justify-between px-4 sm:px-5 py-3">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="users" class="h-4.5 w-4.5" style="color:#c89143;"></i>
+                  <h3 class="text-base font-medium tracking-tight" style="color:#333333;">Personal and social history</h3>
+                </div>
+                <i data-lucide="chevron-down" class="h-5 w-5 transition-transform"></i>
+              </button>
+              <div data-acc-panel class="px-4 sm:px-5 pb-4 space-y-4 hidden">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm mb-1" style="color:#888888;">Bowel movements</label>
+                    <select class="w-full rounded-md px-3 py-2 text-sm" style="background:#FFFFFF; color:#333333; border:1px solid rgba(90,82,76,0.1);">
+                      <option>Regular</option>
+                      <option>Constipation</option>
+                      <option>Diarrhea</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-sm mb-1" style="color:#888888;">Sleep quality</label>
+                    <select class="w-full rounded-md px-3 py-2 text-sm" style="background:#FFFFFF; color:#333333; border:1px solid rgba(90,82,76,0.1);">
+                      <option>Good</option>
+                      <option>Average</option>
+                      <option>Poor</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-sm mb-1" style="color:#888888;">Smoker</label>
+                    <select class="w-full rounded-md px-3 py-2 text-sm" style="background:#FFFFFF; color:#333333; border:1px solid rgba(90,82,76,0.1);">
+                      <option>No</option>
+                      <option>Yes</option>
+                      <option>Former</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-sm mb-1" style="color:#888888;">Alcohol consumption</label>
+                    <select class="w-full rounded-md px-3 py-2 text-sm" style="background:#FFFFFF; color:#333333; border:1px solid rgba(90,82,76,0.1);">
+                      <option>None</option>
+                      <option>Social</option>
+                      <option>Frequent</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-sm mb-1" style="color:#888888;">Marital status</label>
+                    <select class="w-full rounded-md px-3 py-2 text-sm" style="background:#FFFFFF; color:#333333; border:1px solid rgba(90,82,76,0.1);">
+                      <option>Single</option>
+                      <option>Married</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-sm mb-1" style="color:#888888;">Physical activity</label>
+                    <input type="text" class="w-full rounded-md px-3 py-2 text-sm" placeholder="e.g., 3x/week gym" style="background:#FFFFFF; color:#333333; border:1px solid rgba(90,82,76,0.1);">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Medical history -->
+            <div class="rounded-lg" style="background-color:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+              <button data-acc-btn class="w-full flex items-center justify-between px-4 sm:px-5 py-3">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="stethoscope" class="h-4.5 w-4.5" style="color:#c89143;"></i>
+                  <h3 class="text-base font-medium tracking-tight" style="color:#333333;">Medical history</h3>
+                </div>
+                <i data-lucide="chevron-down" class="h-5 w-5 transition-transform"></i>
+              </button>
+              <div data-acc-panel class="px-4 sm:px-5 pb-4 space-y-4 hidden">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm mb-1" style="color:#888888;">Diseases</label>
+                    <input type="text" class="w-full rounded-md px-3 py-2 text-sm" placeholder="e.g., Hypertension" style="background:#FFFFFF; color:#333333; border:1px solid rgba(90,82,76,0.1);">
+                  </div>
+                  <div>
+                    <label class="block text-sm mb-1" style="color:#888888;">Medication</label>
+                    <input type="text" class="w-full rounded-md px-3 py-2 text-sm" placeholder="e.g., Metformin" style="background:#FFFFFF; color:#333333; border:1px solid rgba(90,82,76,0.1);">
+                  </div>
+                  <div class="sm:col-span-2">
+                    <label class="block text-sm mb-1" style="color:#888888;">Personal history</label>
+                    <textarea class="w-full rounded-md px-3 py-2 text-sm" rows="3" style="background:#FFFFFF; color:#333333; border:1px solid rgba(90,82,76,0.1);" placeholder="Personal medical history"></textarea>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <label class="block text-sm mb-1" style="color:#888888;">Family history</label>
+                    <textarea class="w-full rounded-md px-3 py-2 text-sm" rows="3" style="background:#FFFFFF; color:#333333; border:1px solid rgba(90,82,76,0.1);" placeholder="Relevant family history"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Dietary history -->
+            <div class="rounded-lg" style="background-color:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+              <button data-acc-btn class="w-full flex items-center justify-between px-4 sm:px-5 py-3">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="utensils" class="h-4.5 w-4.5" style="color:#c89143;"></i>
+                  <h3 class="text-base font-medium tracking-tight" style="color:#333333;">Dietary history</h3>
+                </div>
+                <i data-lucide="chevron-down" class="h-5 w-5 transition-transform"></i>
+              </button>
+              <div data-acc-panel class="px-4 sm:px-5 pb-4 space-y-4 hidden">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm mb-1" style="color:#888888;">Wake-up time</label>
+                    <input type="time" class="w-full rounded-md px-3 py-2 text-sm" style="background:#FFFFFF; color:#333333; border:1px solid rgba(90,82,76,0.1);">
+                  </div>
+                  <div>
+                    <label class="block text-sm mb-1" style="color:#888888;">Bedtime</label>
+                    <input type="time" class="w-full rounded-md px-3 py-2 text-sm" style="background:#FFFFFF; color:#333333; border:1px solid rgba(90,82,76,0.1);">
+                  </div>
+                  <div>
+                    <label class="block text-sm mb-1" style="color:#888888;">Types of diet</label>
+                    <input type="text" class="w-full rounded-md px-3 py-2 text-sm" placeholder="e.g., vegetarian, gluten-free" style="background:#FFFFFF; color:#333333; border:1px solid rgba(90,82,76,0.1);">
+                  </div>
+                  <div>
+                    <label class="block text-sm mb-1" style="color:#888888;">Favorite food</label>
+                    <input type="text" class="w-full rounded-md px-3 py-2 text-sm" placeholder="e.g., Paneer tikka" style="background:#FFFFFF; color:#333333; border:1px solid rgba(90,82,76,0.1);">
+                  </div>
+                  <div>
+                    <label class="block text-sm mb-1" style="color:#888888;">Allergies</label>
+                    <input type="text" class="w-full rounded-md px-3 py-2 text-sm" placeholder="e.g., Peanuts" style="background:#FFFFFF; color:#333333; border:1px solid rgba(90,82,76,0.1);">
+                  </div>
+                  <div>
+                    <label class="block text-sm mb-1" style="color:#888888;">Water intake (L/day)</label>
+                    <input type="number" step="0.1" class="w-full rounded-md px-3 py-2 text-sm" placeholder="e.g., 2.5" style="background:#FFFFFF; color:#333333; border:1px solid rgba(90,82,76,0.1);">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Right: Running Log & Files -->
+          <div class="space-y-4">
+            <!-- Observations -->
+            <div class="rounded-lg p-4" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+              <div class="flex items-center justify-between">
+                <h4 class="text-sm font-medium tracking-tight" style="color:#333333;">Observations</h4>
+                <button id="obs-add" class="inline-flex items-center gap-1 text-xs rounded-md px-2 py-1 transition-colors" style="border:1px solid rgba(90,82,76,0.1); background:#FFFFFF; color:#333333;">
+                  <i data-lucide="plus" class="h-3.5 w-3.5"></i> New Entry
+                </button>
+              </div>
+              <div id="obs-list" class="mt-2 space-y-2">
+                <p class="text-sm" style="color:#888888;">No observations yet.</p>
+              </div>
+            </div>
+            <!-- Files -->
+            <div class="rounded-lg p-4" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+              <div class="flex items-center justify-between">
+                <h4 class="text-sm font-medium tracking-tight" style="color:#333333;">File Uploads</h4>
+                <div class="flex items-center gap-2">
+                  <input id="file-input" type="file" multiple class="hidden">
+                  <button id="file-btn" class="inline-flex items-center gap-1 text-xs rounded-md px-2 py-1 transition-colors" style="border:1px solid rgba(90,82,76,0.1); background:#FFFFFF; color:#333333;">
+                    <i data-lucide="upload" class="h-3.5 w-3.5"></i> Upload
+                  </button>
+                </div>
+              </div>
+              <ul id="file-list" class="mt-2 space-y-2">
+                <li class="text-sm" style="color:#888888;">No files uploaded.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Measurements -->
+      <div data-panel="measurements" class="hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <!-- Left: Metrics List -->
+          <div class="space-y-4">
+            <div class="rounded-lg p-4" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+              <div class="flex items-center gap-2">
+                <i data-lucide="activity" class="h-4.5 w-4.5" style="color:#c89143;"></i>
+                <h3 class="text-sm font-medium tracking-tight">Body Composition</h3>
+              </div>
+              <div id="metric-list-body" class="mt-3 grid grid-cols-2 gap-2">
+                <!-- Metrics inserted by JS -->
+              </div>
+            </div>
+            <div class="rounded-lg p-4" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+              <div class="flex items-center gap-2">
+                <i data-lucide="flask-round" class="h-4.5 w-4.5" style="color:#c89143;"></i>
+                <h3 class="text-sm font-medium tracking-tight">Blood Work</h3>
+              </div>
+              <div id="metric-list-blood" class="mt-3 grid grid-cols-2 gap-2">
+                <!-- Metrics inserted by JS -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Actions & charts -->
+          <div class="lg:col-span-2 space-y-4">
+            <!-- Record form -->
+            <div class="rounded-lg p-4" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+              <div class="flex items-center justify-between">
+                <h3 class="text-sm font-medium tracking-tight">Record Measurement</h3>
+              </div>
+              <div class="mt-3 grid grid-cols-1 sm:grid-cols-5 gap-3">
+                <select id="m-metric" class="rounded-md px-3 py-2 text-sm col-span-2 sm:col-span-2" style="background:#FFFFFF; color:#333333; border:1px solid rgba(90,82,76,0.1);"></select>
+                <input id="m-date" type="date" class="rounded-md px-3 py-2 text-sm col-span-2 sm:col-span-1" style="background:#FFFFFF; color:#333333; border:1px solid rgba(90,82,76,0.1);">
+                <input id="m-value" type="number" step="0.01" placeholder="Value" class="rounded-md px-3 py-2 text-sm col-span-2 sm:col-span-1" style="background:#FFFFFF; color:#333333; border:1px solid rgba(90,82,76,0.1);">
+                <select id="m-source" class="rounded-md px-3 py-2 text-sm col-span-2 sm:col-span-1" style="background:#FFFFFF; color:#333333; border:1px solid rgba(90,82,76,0.1);">
+                  <option value="practitioner">Practitioner</option>
+                  <option value="client">Client</option>
+                </select>
+                <button id="m-register" class="rounded-md px-3.5 py-2 text-sm font-medium col-span-2 sm:col-span-1" style="background:#c89143; color:#FFFFFF;" onmouseover="this.style.backgroundColor='#a97b39'" onmouseout="this.style.backgroundColor='#c89143'">
+                  Add
+                </button>
+              </div>
+              <p id="m-unit-hint" class="text-xs mt-2" style="color:#888888;">Unit: —</p>
+            </div>
+
+            <!-- Chart -->
+            <div class="rounded-lg p-4" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+              <div class="flex items-center justify-between">
+                <h3 id="m-chart-title" class="text-sm font-medium tracking-tight">Progress</h3>
+                <span id="m-chart-sub" class="text-xs" style="color:#888888;">Select a metric</span>
+              </div>
+              <div class="mt-3">
+                <div class="h-64">
+                  <div class="h-full"><canvas id="progressChart"></canvas></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Data Table -->
+            <div class="rounded-lg p-4 overflow-x-auto" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+              <h3 class="text-sm font-medium tracking-tight">Data Table</h3>
+              <table class="min-w-full text-sm mt-3">
+                <thead>
+                  <tr class="text-left" style="color:#888888;">
+                    <th class="py-2 pr-4">Date</th>
+                    <th class="py-2 pr-4">Metric</th>
+                    <th class="py-2 pr-4">Value</th>
+                    <th class="py-2 pr-4">Unit</th>
+                    <th class="py-2 pr-0">Source</th>
+                  </tr>
+                </thead>
+                <tbody id="m-table" style="color:#333333;">
+                  <!-- Rows via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Planning -->
+      <div data-panel="planning" class="hidden">
+        <div class="space-y-4">
+          <!-- Core Data -->
+          <div class="rounded-lg p-4" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+            <h3 class="text-sm font-medium tracking-tight">Core Data</h3>
+            <div class="mt-3 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+              <div>
+                <label class="block text-xs mb-1" style="color:#888888;">Weight (kg)</label>
+                <input id="p-weight" type="number" step="0.1" value="72.5" class="w-full rounded-md px-3 py-2 text-sm" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+              </div>
+              <div>
+                <label class="block text-xs mb-1" style="color:#888888;">Goal Weight (kg)</label>
+                <input id="p-goal" type="number" step="0.1" value="68" class="w-full rounded-md px-3 py-2 text-sm" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+              </div>
+              <div>
+                <label class="block text-xs mb-1" style="color:#888888;">Height (cm)</label>
+                <input id="p-height" type="number" step="0.1" value="173" class="w-full rounded-md px-3 py-2 text-sm" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+              </div>
+              <div>
+                <label class="block text-xs mb-1" style="color:#888888;">Age (y)</label>
+                <input id="p-age" type="number" value="33" class="w-full rounded-md px-3 py-2 text-sm" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+              </div>
+              <div>
+                <label class="block text-xs mb-1" style="color:#888888;">Sex</label>
+                <select id="p-sex" class="w-full rounded-md px-3 py-2 text-sm" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+              </div>
+              <div>
+                <label class="block text-xs mb-1" style="color:#888888;">Activity level</label>
+                <select id="p-activity" class="w-full rounded-md px-3 py-2 text-sm" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+                  <option value="1.2">Sedentary (little or no exercise)</option>
+                  <option value="1.375">Lightly active (1–3 days/week)</option>
+                  <option value="1.55" selected>Moderately active (3–5 days/week)</option>
+                  <option value="1.725">Very active (6–7 days/week)</option>
+                  <option value="1.9">Extra active (athlete)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs mb-1" style="color:#888888;">Goal</label>
+                <select id="p-goal-type" class="w-full rounded-md px-3 py-2 text-sm" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+                  <option value="loss">Fat loss (−15%)</option>
+                  <option value="maintain" selected>Maintenance (0%)</option>
+                  <option value="gain">Muscle gain (+10%)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div class="rounded-md p-3" style="background:#FAFAF7; border:1px solid rgba(90,82,76,0.1);">
+                <p class="text-xs" style="color:#888888;">BMI</p>
+                <p id="p-bmi" class="text-lg font-semibold tracking-tight" style="color:#333333;">—</p>
+              </div>
+              <div class="rounded-md p-3" style="background:#FAFAF7; border:1px solid rgba(90,82,76,0.1);">
+                <p class="text-xs" style="color:#888888;">BMR</p>
+                <p id="p-bmr" class="text-lg font-semibold tracking-tight" style="color:#333333;">— kcal</p>
+              </div>
+              <div class="rounded-md p-3" style="background:#FAFAF7; border:1px solid rgba(90,82,76,0.1);">
+                <p class="text-xs" style="color:#888888;">TDEE</p>
+                <p id="p-tdee" class="text-lg font-semibold tracking-tight" style="color:#333333;">— kcal</p>
+              </div>
+              <div class="rounded-md p-3" style="background:#FAFAF7; border:1px solid rgba(90,82,76,0.1);">
+                <p class="text-xs" style="color:#888888;">Daily Target</p>
+                <p id="p-cal-target" class="text-lg font-semibold tracking-tight" style="color:#333333;">— kcal</p>
+              </div>
+            </div>
+
+            <div class="mt-4 flex items-center justify-end gap-2">
+              <button id="p-recalc" class="rounded-md px-3.5 py-2 text-sm font-medium transition-colors" style="background:#c89143; color:#FFFFFF;" onmouseover="this.style.backgroundColor='#a97b39'" onmouseout="this.style.backgroundColor='#c89143'">
+                Recalculate
+              </button>
+            </div>
+          </div>
+
+          <!-- Macro Targets -->
+          <div class="rounded-lg p-4" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-medium tracking-tight">Macro Targets</h3>
+              <span class="text-xs" style="color:#888888;">Adjust distribution, totals must equal 100%</span>
+            </div>
+            <div class="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div>
+                <label class="block text-xs mb-1" style="color:#888888;">Protein (%)</label>
+                <input id="p-protein" type="range" min="10" max="50" value="25" class="w-full">
+                <div class="flex items-center justify-between mt-1 text-xs">
+                  <span id="p-protein-p" style="color:#333333;">25%</span>
+                  <span id="p-protein-g" style="color:#888888;">— g</span>
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs mb-1" style="color:#888888;">Fat (%)</label>
+                <input id="p-fat" type="range" min="15" max="40" value="30" class="w-full">
+                <div class="flex items-center justify-between mt-1 text-xs">
+                  <span id="p-fat-p" style="color:#333333;">30%</span>
+                  <span id="p-fat-g" style="color:#888888;">— g</span>
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs mb-1" style="color:#888888;">Carbs (%)</label>
+                <div class="rounded-md px-3 py-2 text-sm flex items-center justify-between" style="background:#FAFAF7; border:1px solid rgba(90,82,76,0.1);">
+                  <span id="p-carbs-p" class="font-medium">45%</span>
+                  <span id="p-carbs-g" class="text-xs" style="color:#888888;">— g</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div class="rounded-md p-3 text-center" style="background:#FAFAF7; border:1px solid rgba(90,82,76,0.1);">
+                <p class="text-[11px]" style="color:#888888;">Protein</p>
+                <p id="p-protein-out" class="text-base font-semibold" style="color:#333333;">— g</p>
+              </div>
+              <div class="rounded-md p-3 text-center" style="background:#FAFAF7; border:1px solid rgba(90,82,76,0.1);">
+                <p class="text-[11px]" style="color:#888888;">Fat</p>
+                <p id="p-fat-out" class="text-base font-semibold" style="color:#333333;">— g</p>
+              </div>
+              <div class="rounded-md p-3 text-center" style="background:#FAFAF7; border:1px solid rgba(90,82,76,0.1);">
+                <p class="text-[11px]" style="color:#888888;">Carbs</p>
+                <p id="p-carbs-out" class="text-base font-semibold" style="color:#333333;">— g</p>
+              </div>
+              <div class="rounded-md p-3 text-center" style="background:#FAFAF7; border:1px solid rgba(90,82,76,0.1);">
+                <p class="text-[11px]" style="color:#888888;">Fiber (est.)</p>
+                <p id="p-fiber-out" class="text-base font-semibold" style="color:#333333;">— g</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Plan Notes -->
+          <div class="rounded-lg p-4" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+            <div class="flex items-center gap-2">
+              <i data-lucide="target" class="h-4.5 w-4.5" style="color:#c89143;"></i>
+              <h3 class="text-sm font-medium tracking-tight">Plan Notes</h3>
+            </div>
+            <textarea id="p-notes" rows="3" placeholder="Coaching notes, constraints, cultural preferences..." class="w-full mt-3 rounded-md px-3 py-2 text-sm" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);"></textarea>
+            <div class="mt-3 flex items-center justify-end gap-2">
+              <button id="p-save" class="rounded-md px-3.5 py-2 text-sm font-medium transition-colors" style="background:#c89143; color:#FFFFFF;" onmouseover="this.style.backgroundColor='#a97b39'" onmouseout="this.style.backgroundColor='#c89143'">Save Plan</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Meals -->
+      <div data-panel="meals" class="hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <!-- Day Selector -->
+          <div class="rounded-lg p-4 h-max" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+            <div class="flex items-center gap-2">
+              <i data-lucide="calendar-range" class="h-4.5 w-4.5" style="color:#c89143;"></i>
+              <h3 class="text-sm font-medium tracking-tight">Week Planner</h3>
+            </div>
+            <div id="meal-days" class="mt-3 grid grid-cols-3 gap-2">
+              <!-- days via JS -->
+            </div>
+          </div>
+
+          <!-- Meals List -->
+          <div class="lg:col-span-2 space-y-4">
+            <div class="rounded-lg p-4" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="utensils" class="h-4.5 w-4.5" style="color:#c89143;"></i>
+                  <h3 id="meal-day-title" class="text-sm font-medium tracking-tight">Meals for Monday</h3>
+                </div>
+                <button id="meal-add" class="inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors" style="background:#c89143; color:#FFFFFF;" onmouseover="this.style.backgroundColor='#a97b39'" onmouseout="this.style.backgroundColor='#c89143'">
+                  <i data-lucide="plus" class="h-4 w-4"></i> Add meal
+                </button>
+              </div>
+              <div id="meal-list" class="mt-3 space-y-3">
+                <!-- meal cards -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recommendations -->
+      <div data-panel="recommendations" class="hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="lg:col-span-2 rounded-lg p-4" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <i data-lucide="list-checks" class="h-4.5 w-4.5" style="color:#c89143;"></i>
+                <h3 class="text-sm font-medium tracking-tight">Recommendations</h3>
+              </div>
+              <div class="flex gap-2">
+                <input id="rec-input" type="text" placeholder="Add a recommendation..." class="rounded-md px-3 py-2 text-sm w-56 hidden sm:block" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+                <button id="rec-add" class="rounded-md px-3.5 py-2 text-sm font-medium transition-colors" style="background:#c89143; color:#FFFFFF;" onmouseover="this.style.backgroundColor='#a97b39'" onmouseout="this.style.backgroundColor='#c89143'">Add</button>
+              </div>
+            </div>
+            <ul id="rec-list" class="mt-3 space-y-2">
+              <li class="text-sm" style="color:#888888;">No recommendations yet.</li>
+            </ul>
+          </div>
+          <div class="space-y-4">
+            <div class="rounded-lg p-4" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+              <h4 class="text-sm font-medium tracking-tight">Lifestyle Focus</h4>
+              <ul class="mt-2 text-sm space-y-1" style="color:#333333;">
+                <li class="flex items-center gap-2"><i data-lucide="moon" class="h-4 w-4" style="color:#c89143;"></i> 7–8 hours sleep</li>
+                <li class="flex items-center gap-2"><i data-lucide="droplets" class="h-4 w-4" style="color:#c89143;"></i> 2–3 L water</li>
+                <li class="flex items-center gap-2"><i data-lucide="dumbbell" class="h-4 w-4" style="color:#c89143;"></i> 2–3 strength sessions</li>
+                <li class="flex items-center gap-2"><i data-lucide="leaf" class="h-4 w-4" style="color:#c89143;"></i> Whole foods emphasis</li>
+              </ul>
+            </div>
+            <div class="rounded-lg p-4" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+              <h4 class="text-sm font-medium tracking-tight">Supplements (optional)</h4>
+              <div class="mt-2 space-y-2 text-sm">
+                <label class="flex items-center gap-2"><input type="checkbox" class="rounded" aria-label="Omega-3"> Omega-3 (1–2 g/day)</label>
+                <label class="flex items-center gap-2"><input type="checkbox" class="rounded" aria-label="Vitamin D3"> Vitamin D3 (2000 IU)</label>
+                <label class="flex items-center gap-2"><input type="checkbox" class="rounded" aria-label="Probiotic"> Probiotic (CFU 10B)</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Analysis -->
+      <div data-panel="analysis" class="hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="rounded-lg p-4 lg:col-span-2" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <i data-lucide="chart-line" class="h-4.5 w-4.5" style="color:#c89143;"></i>
+                <h3 class="text-sm font-medium tracking-tight">Weight Trend</h3>
+              </div>
+              <span class="text-xs" style="color:#888888;">Last 8 entries</span>
+            </div>
+            <div class="mt-3 h-64">
+              <canvas id="trendChart"></canvas>
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div class="rounded-lg p-4" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+              <h4 class="text-sm font-medium tracking-tight">Compliance</h4>
+              <div class="mt-3 h-44">
+                <canvas id="complianceChart"></canvas>
+              </div>
+            </div>
+            <div class="rounded-lg p-4" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+              <h4 class="text-sm font-medium tracking-tight">Flags</h4>
+              <ul id="flag-list" class="mt-2 text-sm space-y-1">
+                <!-- flags via JS -->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deliverables -->
+      <div data-panel="deliverables" class="hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="lg:col-span-2 rounded-lg p-4" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <i data-lucide="files" class="h-4.5 w-4.5" style="color:#c89143;"></i>
+                <h3 class="text-sm font-medium tracking-tight">Export & Share</h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <button id="dl-pdf" class="rounded-md px-3.5 py-2 text-sm font-medium transition-colors" style="background:#c89143; color:#FFFFFF;" onmouseover="this.style.backgroundColor='#a97b39'" onmouseout="this.style.backgroundColor='#c89143'">
+                  Print / PDF
+                </button>
+                <button id="copy-link" class="rounded-md px-3.5 py-2 text-sm font-medium transition-colors" style="border:1px solid rgba(90,82,76,0.1); background:#FFFFFF; color:#333333;">
+                  Copy share link
+                </button>
+                <button id="export-json" class="rounded-md px-3.5 py-2 text-sm font-medium transition-colors" style="border:1px solid rgba(90,82,76,0.1); background:#FFFFFF; color:#333333;">
+                  Export JSON
+                </button>
+              </div>
+            </div>
+            <div class="mt-3 rounded-md p-4" style="background:#FAFAF7; border:1px solid rgba(90,82,76,0.1);">
+              <h4 class="text-sm font-medium tracking-tight">Preview</h4>
+              <p class="text-sm mt-1" style="color:#888888;">Use the controls above to generate a print-friendly document or export structured data.</p>
+              <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div class="rounded p-3" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+                  <p class="text-xs" style="color:#888888;">Client</p>
+                  <p class="text-sm font-medium">Example client</p>
+                </div>
+                <div class="rounded p-3" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+                  <p class="text-xs" style="color:#888888;">Calories</p>
+                  <p id="deliv-cal" class="text-sm font-medium">— kcal</p>
+                </div>
+                <div class="rounded p-3" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+                  <p class="text-xs" style="color:#888888;">Macros</p>
+                  <p id="deliv-macros" class="text-sm font-medium">—</p>
+                </div>
+                <div class="rounded p-3" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+                  <p class="text-xs" style="color:#888888;">Notes</p>
+                  <p id="deliv-notes" class="text-sm">—</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div class="rounded-lg p-4" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+              <h4 class="text-sm font-medium tracking-tight">Branding</h4>
+              <div class="mt-2 flex items-center gap-3">
+                <div class="h-10 w-10 rounded-md flex items-center justify-center" style="background-color:#c89143; color:#ffffff;">
+                  <span class="text-sm font-semibold">AA</span>
+                </div>
+                <div>
+                  <p class="text-sm font-medium">AyuAahar</p>
+                  <p class="text-xs" style="color:#888888;">Client-friendly report</p>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-lg p-4" style="background:#FFFFFF; border:1px solid rgba(90,82,76,0.1);">
+              <h4 class="text-sm font-medium tracking-tight">Tips</h4>
+              <ul class="mt-2 list-disc list-inside text-sm space-y-1" style="color:#333333;">
+                <li>Keep meals culturally aligned</li>
+                <li>Use simple, available ingredients</li>
+                <li>Plan around schedule and preferences</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide && lucide.createIcons) lucide.createIcons();
+
+      // Tabs
+      const tabButtons = Array.from(document.querySelectorAll('#tabbar [data-tab]'));
+      const panels = Array.from(document.querySelectorAll('#panels [data-panel]'));
+      function setActiveTab(name) {
+        tabButtons.forEach(btn => {
+          const active = btn.dataset.tab === name;
+          btn.style.color = active ? '#333333' : '#888888';
+          btn.style.borderBottomColor = active ? '#c89143' : 'transparent';
+          btn.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        panels.forEach(p => p.classList.toggle('hidden', p.dataset.panel !== name));
+        if (name === 'measurements') {
+          resizeCharts();
+        }
+        if (name === 'analysis') {
+          updateTrendChart();
+          updateComplianceChart();
+        }
+      }
+      tabButtons.forEach(btn => btn.addEventListener('click', () => setActiveTab(btn.dataset.tab)));
+
+      // Accordions
+      document.querySelectorAll('[data-acc-btn]').forEach((btn) => {
+        const panel = btn.parentElement.querySelector('[data-acc-panel]');
+        const icon = btn.querySelector('[data-lucide="chevron-down"]');
+        btn.setAttribute('aria-expanded', !panel.classList.contains('hidden'));
+        btn.addEventListener('click', () => {
+          panel.classList.toggle('hidden');
+          const expanded = !panel.classList.contains('hidden');
+          btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+          if (icon) icon.style.transform = expanded ? 'rotate(180deg)' : 'rotate(0deg)';
+        });
+      });
+
+      // Observations
+      const obsAdd = document.getElementById('obs-add');
+      const obsList = document.getElementById('obs-list');
+      const observations = [];
+      function renderObservations() {
+        obsList.innerHTML = '';
+        if (!observations.length) {
+          const p = document.createElement('p');
+          p.className = 'text-sm';
+          p.style.color = '#888888';
+          p.textContent = 'No observations yet.';
+          obsList.appendChild(p);
+          return;
+        }
+        observations.forEach((o, i) => {
+          const item = document.createElement('div');
+          item.className = 'flex items-start justify-between gap-3 rounded-md p-2';
+          item.style.cssText = 'background:#FAFAF7; border:1px solid rgba(90,82,76,0.1);';
+          item.innerHTML = `
+            <div>
+              <p class="text-sm" style="color:#333333;">${o.text}</p>
+              <p class="text-xs mt-0.5" style="color:#888888;">${o.date}</p>
+            </div>
+            <button class="shrink-0 rounded-md w-8 h-8 flex items-center justify-center" aria-label="Delete observation" title="Delete" style="border:1px solid rgba(90,82,76,0.1); background:#FFFFFF;"><i data-lucide="trash-2" class="h-4 w-4"></i></button>
+          `;
+          const delBtn = item.querySelector('button');
+          delBtn.addEventListener('click', () => { observations.splice(i,1); renderObservations(); if (lucide) lucide.createIcons(); });
+          obsList.appendChild(item);
+        });
+        if (window.lucide) lucide.createIcons();
+      }
+      obsAdd.addEventListener('click', () => {
+        const text = prompt('Add observation:');
+        if (text && text.trim()) {
+          observations.unshift({ text: text.trim(), date: new Date().toLocaleString() });
+          renderObservations();
+        }
+      });
+
+      // Files
+      const fileBtn = document.getElementById('file-btn');
+      const fileInput = document.getElementById('file-input');
+      const fileList = document.getElementById('file-list');
+      let filesState = [];
+      fileBtn.addEventListener('click', () => fileInput.click());
+      fileInput.addEventListener('change', (e) => {
+        const newFiles = Array.from(e.target.files).map(f => ({ name: f.name, size: f.size }));
+        filesState = filesState.concat(newFiles);
+        renderFiles();
+        fileInput.value = '';
+      });
+      function renderFiles() {
+        fileList.innerHTML = '';
+        if (!filesState.length) {
+          const li = document.createElement('li');
+          li.className = 'text-sm';
+          li.style.color = '#888888';
+          li.textContent = 'No files uploaded.';
+          fileList.appendChild(li);
+          return;
+        }
+        filesState.forEach((f, i) => {
+          const li = document.createElement('li');
+          li.className = 'flex items-center justify-between gap-3 rounded-md p-2';
+          li.style.cssText = 'background:#FAFAF7; border:1px solid rgba(90,82,76,0.1);';
+          const sizeKB = Math.max(1, Math.round(f.size / 1024));
+          li.innerHTML = `
+            <div class="flex items-center gap-2">
+              <i data-lucide="file" class="h-4 w-4" style="color:#c89143;"></i>
+              <span class="text-sm" style="color:#333333;">${f.name}</span>
+              <span class="text-xs" style="color:#888888;">${sizeKB} KB</span>
+            </div>
+            <button class="rounded-md w-8 h-8 flex items-center justify-center" aria-label="Remove file" title="Remove" style="border:1px solid rgba(90,82,76,0.1); background:#FFFFFF;">
+              <i data-lucide="x" class="h-4 w-4"></i>
+            </button>
+          `;
+          li.querySelector('button').addEventListener('click', () => { filesState.splice(i,1); renderFiles(); if (lucide) lucide.createIcons(); });
+          fileList.appendChild(li);
+        });
+        if (window.lucide) lucide.createIcons();
+      }
+
+      // Measurements data
+      const metrics = {
+        body: [
+          { id: 'weight', label: 'Weight', unit: 'kg' },
+          { id: 'bodyfat', label: 'Body Fat', unit: '%' },
+          { id: 'waist', label: 'Waist', unit: 'cm' },
+          { id: 'hip', label: 'Hip', unit: 'cm' },
+          { id: 'bmi', label: 'BMI', unit: '' }
+        ],
+        blood: [
+          { id: 'glucose', label: 'Fasting Glucose', unit: 'mg/dL' },
+          { id: 'hba1c', label: 'HbA1c', unit: '%' },
+          { id: 'hdl', label: 'HDL', unit: 'mg/dL' },
+          { id: 'ldl', label: 'LDL', unit: 'mg/dL' },
+          { id: 'tg', label: 'Triglycerides', unit: 'mg/dL' }
+        ]
+      };
+      const metricSelect = document.getElementById('m-metric');
+      const mUnitHint = document.getElementById('m-unit-hint');
+      const bodyWrap = document.getElementById('metric-list-body');
+      const bloodWrap = document.getElementById('metric-list-blood');
+      const mDate = document.getElementById('m-date');
+      const mValue = document.getElementById('m-value');
+      const mSource = document.getElementById('m-source');
+      const mRegister = document.getElementById('m-register');
+      const mTable = document.getElementById('m-table');
+      const mChartTitle = document.getElementById('m-chart-title');
+      const mChartSub = document.getElementById('m-chart-sub');
+
+      // Populate metric selectors
+      function makeMetricPill(m) {
+        const b = document.createElement('button');
+        b.className = 'text-xs rounded-md px-2.5 py-1.5 text-left transition-colors';
+        b.style.cssText = 'border:1px solid rgba(90,82,76,0.1); background:#FFFFFF; color:#333333;';
+        b.textContent = `${m.label}`;
+        b.addEventListener('click', () => {
+          metricSelect.value = m.id;
+          updateMetricUI();
+          if (window.lucide) lucide.createIcons();
+        });
+        return b;
+      }
+      function populateMetrics() {
+        metricSelect.innerHTML = '';
+        Object.values(metrics).flat().forEach(m => {
+          const opt = document.createElement('option');
+          opt.value = m.id;
+          opt.textContent = `${m.label} (${m.unit || '—'})`;
+          metricSelect.appendChild(opt);
+        });
+        bodyWrap.innerHTML = '';
+        metrics.body.forEach(m => bodyWrap.appendChild(makeMetricPill(m)));
+        bloodWrap.innerHTML = '';
+        metrics.blood.forEach(m => bloodWrap.appendChild(makeMetricPill(m)));
+        metricSelect.value = 'weight';
+        updateMetricUI();
+      }
+      function getMetricMeta(id) {
+        return Object.values(metrics).flat().find(m => m.id === id);
+      }
+      function updateMetricUI() {
+        const meta = getMetricMeta(metricSelect.value);
+        mUnitHint.textContent = 'Unit: ' + (meta?.unit || '—');
+        mChartTitle.textContent = meta ? meta.label + ' Progress' : 'Progress';
+        mChartSub.textContent = meta ? `Unit: ${meta.unit || '—'}` : 'Select a metric';
+        updateChartFor(metricSelect.value);
+      }
+
+      // Measurement store
+      let records = [
+        { date: '2025-03-01', metric: 'weight', value: 72.8, unit: 'kg', source: 'practitioner' },
+        { date: '2025-03-15', metric: 'weight', value: 72.0, unit: 'kg', source: 'client' },
+        { date: '2025-04-01', metric: 'weight', value: 71.5, unit: 'kg', source: 'client' },
+      ];
+      function addRecord(rec) {
+        records.push(rec);
+        records.sort((a,b) => new Date(a.date) - new Date(b.date));
+        renderTable();
+        updateChartFor(metricSelect.value);
+        updateTrendChart();
+        computeFlags();
+      }
+      function renderTable() {
+        mTable.innerHTML = '';
+        if (!records.length) return;
+        records.forEach(r => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td class="py-2 pr-4 whitespace-nowrap">${r.date}</td>
+            <td class="py-2 pr-4">${getMetricMeta(r.metric)?.label || r.metric}</td>
+            <td class="py-2 pr-4">${r.value}</td>
+            <td class="py-2 pr-4">${r.unit || getMetricMeta(r.metric)?.unit || ''}</td>
+            <td class="py-2 pr-0 capitalize">${r.source}</td>
+          `;
+          mTable.appendChild(tr);
+        });
+      }
+
+      // Chart.js
+      const progressCtx = document.getElementById('progressChart').getContext('2d');
+      const trendCtx = document.getElementById('trendChart').getContext('2d');
+      const complianceCtx = document.getElementById('complianceChart').getContext('2d');
+      const gridColor = 'rgba(90,82,76,0.1)';
+      let progressChart = new Chart(progressCtx, {
+        type: 'line',
+        data: { labels: [], datasets: [{ label: 'Value', data: [], tension: 0.35, borderColor: '#c89143', backgroundColor: 'rgba(200,145,67,0.15)', fill: true, pointRadius: 3 }] },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: { grid: { color: gridColor } },
+            y: { grid: { color: gridColor } }
+          },
+          plugins: { legend: { display: false } }
+        }
+      });
+      let trendChart = new Chart(trendCtx, {
+        type: 'line',
+        data: { labels: [], datasets: [{ label: 'Weight (kg)', data: [], tension: 0.35, borderColor: '#5a524c', backgroundColor: 'rgba(90,82,76,0.08)', fill: true, pointRadius: 2 }] },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: { grid: { color: gridColor } },
+            y: { grid: { color: gridColor } }
+          },
+          plugins: { legend: { display: false } }
+        }
+      });
+      let complianceChart = new Chart(complianceCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['On track', 'Missed'],
+          datasets: [{ data: [80, 20], backgroundColor: ['#c89143', '#e6e1da'], borderWidth: 0 }]
+        },
+        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { boxWidth: 10 } } }, cutout: '65%' }
+      });
+      function updateChartFor(metric) {
+        const meta = getMetricMeta(metric);
+        const data = records.filter(r => r.metric === metric);
+        progressChart.data.labels = data.map(d => d.date);
+        progressChart.data.datasets[0].data = data.map(d => d.value);
+        progressChart.update();
+        mChartSub.textContent = meta ? (data.length ? `Last: ${data[data.length-1].value} ${meta.unit || ''}` : `No data yet`) : '';
+      }
+      function updateTrendChart() {
+        const data = records.filter(r => r.metric === 'weight').slice(-8);
+        trendChart.data.labels = data.map(d => d.date);
+        trendChart.data.datasets[0].data = data.map(d => d.value);
+        trendChart.update();
+      }
+      function updateComplianceChart() {
+        // Simple synthetic compliance based on having meals in the week
+        const onTrack = Math.min(95, 60 + Math.round(Math.random() * 35));
+        complianceChart.data.datasets[0].data = [onTrack, 100 - onTrack];
+        complianceChart.update();
+      }
+      function resizeCharts() {
+        progressChart.resize();
+        trendChart.resize();
+        complianceChart.resize();
+      }
+
+      // Record measurement
+      mRegister.addEventListener('click', () => {
+        const id = metricSelect.value;
+        const meta = getMetricMeta(id);
+        const date = mDate.value || new Date().toISOString().slice(0,10);
+        const val = parseFloat(mValue.value);
+        if (isNaN(val)) { alert('Please enter a value'); return; }
+        addRecord({ date, metric: id, value: val, unit: meta?.unit || '', source: mSource.value });
+        mValue.value = '';
+      });
+
+      // Initialize measurements UI
+      populateMetrics();
+      renderTable();
+      updateTrendChart();
+      updateComplianceChart();
+
+      // Planning calculations
+      const pWeight = document.getElementById('p-weight');
+      const pGoal = document.getElementById('p-goal');
+      const pHeight = document.getElementById('p-height');
+      const pAge = document.getElementById('p-age');
+      const pSex = document.getElementById('p-sex');
+      const pActivity = document.getElementById('p-activity');
+      const pGoalType = document.getElementById('p-goal-type');
+      const pBMI = document.getElementById('p-bmi');
+      const pBMR = document.getElementById('p-bmr');
+      const pTDEE = document.getElementById('p-tdee');
+      const pCalTarget = document.getElementById('p-cal-target');
+      const pRecalc = document.getElementById('p-recalc');
+      const pProtein = document.getElementById('p-protein');
+      const pFat = document.getElementById('p-fat');
+      const pProteinP = document.getElementById('p-protein-p');
+      const pFatP = document.getElementById('p-fat-p');
+      const pCarbsP = document.getElementById('p-carbs-p');
+      const pProteinG = document.getElementById('p-protein-g');
+      const pFatG = document.getElementById('p-fat-g');
+      const pCarbsG = document.getElementById('p-carbs-g');
+      const pProteinOut = document.getElementById('p-protein-out');
+      const pFatOut = document.getElementById('p-fat-out');
+      const pCarbsOut = document.getElementById('p-carbs-out');
+      const pFiberOut = document.getElementById('p-fiber-out');
+      const pNotes = document.getElementById('p-notes');
+
+      function computePlan() {
+        const w = parseFloat(pWeight.value) || 0;
+        const h = parseFloat(pHeight.value) || 0;
+        const age = parseFloat(pAge.value) || 0;
+        const sex = pSex.value;
+        const act = parseFloat(pActivity.value) || 1.2;
+        const bmi = h ? w / Math.pow(h/100, 2) : 0;
+        const bmr = sex === 'male'
+          ? (10 * w + 6.25 * h - 5 * age + 5)
+          : (10 * w + 6.25 * h - 5 * age - 161);
+        const tdee = bmr * act;
+        let calTarget = tdee;
+        if (pGoalType.value === 'loss') calTarget = tdee * 0.85;
+        if (pGoalType.value === 'gain') calTarget = tdee * 1.10;
+        const pPct = parseInt(pProtein.value, 10);
+        const fPct = parseInt(pFat.value, 10);
+        let cPct = Math.max(0, 100 - pPct - fPct);
+        // clamp if needed
+        if (cPct < 20) {
+          cPct = 20;
+          const rest = 80;
+          const ratio = pPct + fPct || 1;
+          pProtein.value = Math.round(rest * (pPct / ratio));
+          pFat.value = rest - parseInt(pProtein.value,10);
+        }
+        const proteinG = (calTarget * (parseInt(pProtein.value,10)/100)) / 4;
+        const fatG = (calTarget * (parseInt(pFat.value,10)/100)) / 9;
+        const carbsG = (calTarget * (cPct/100)) / 4;
+        const fiberG = Math.round(Math.max(20, Math.min(40, w * 0.35)));
+
+        pBMI.textContent = bmi ? bmi.toFixed(1) : '—';
+        pBMR.textContent = bmr ? Math.round(bmr) + ' kcal' : '— kcal';
+        pTDEE.textContent = tdee ? Math.round(tdee) + ' kcal' : '— kcal';
+        pCalTarget.textContent = calTarget ? Math.round(calTarget) + ' kcal' : '— kcal';
+
+        pProteinP.textContent = `${pProtein.value}%`;
+        pFatP.textContent = `${pFat.value}%`;
+        pCarbsP.textContent = `${cPct}%`;
+        pProteinG.textContent = `${Math.round(proteinG)} g`;
+        pFatG.textContent = `${Math.round(fatG)} g`;
+        pCarbsG.textContent = `${Math.round(carbsG)} g`;
+
+        pProteinOut.textContent = `${Math.round(proteinG)} g`;
+        pFatOut.textContent = `${Math.round(fatG)} g`;
+        pCarbsOut.textContent = `${Math.round(carbsG)} g`;
+        pFiberOut.textContent = `${fiberG} g`;
+
+        // deliverables preview
+        document.getElementById('deliv-cal').textContent = pCalTarget.textContent;
+        document.getElementById('deliv-macros').textContent = `${Math.round(proteinG)}g P • ${Math.round(carbsG)}g C • ${Math.round(fatG)}g F`;
+        document.getElementById('deliv-notes').textContent = pNotes.value || '—';
+      }
+      ['input','change'].forEach(evt => {
+        [pWeight,pGoal,pHeight,pAge,pSex,pActivity,pGoalType,pProtein,pFat,pNotes].forEach(el => el.addEventListener(evt, computePlan));
+      });
+      pRecalc.addEventListener('click', computePlan);
+      computePlan();
+
+      // Meals planner
+      const days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+      const mealDaysWrap = document.getElementById('meal-days');
+      const mealDayTitle = document.getElementById('meal-day-title');
+      const mealList = document.getElementById('meal-list');
+      const mealAdd = document.getElementById('meal-add');
+      const mealsData = Object.fromEntries(days.map(d => [d, []]));
+      let currentDay = days[0];
+
+      function renderDays() {
+        mealDaysWrap.innerHTML = '';
+        days.forEach(d => {
+          const b = document.createElement('button');
+          b.className = 'rounded-md px-2.5 py-1.5 text-sm transition-colors';
+          const active = d === currentDay;
+          b.style.cssText = active
+            ? 'background:#c89143; color:#FFFFFF;'
+            : 'border:1px solid rgba(90,82,76,0.1); background:#FFFFFF; color:#333333;';
+          b.textContent = d.slice(0,3);
+          b.addEventListener('click', () => { currentDay = d; renderDays(); renderMeals(); });
+          mealDaysWrap.appendChild(b);
+        });
+      }
+      function renderMeals() {
+        mealDayTitle.textContent = `Meals for ${currentDay}`;
+        mealList.innerHTML = '';
+        const list = mealsData[currentDay];
+        if (!list.length) {
+          const p = document.createElement('p');
+          p.className = 'text-sm';
+          p.style.color = '#888888';
+          p.textContent = 'No meals added yet.';
+          mealList.appendChild(p);
+          return;
+        }
+        list.forEach((m, i) => {
+          const card = document.createElement('div');
+          card.className = 'rounded-md p-3 flex items-start justify-between gap-3';
+          card.style.cssText = 'background:#FAFAF7; border:1px solid rgba(90,82,76,0.1);';
+          card.innerHTML = `
+            <div>
+              <p class="text-sm font-medium" style="color:#333333;">${m.name}</p>
+              <p class="text-xs mt-0.5" style="color:#888888;">${m.cals} kcal • ${m.p}g P • ${m.c}g C • ${m.f}g F</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="rounded-md w-8 h-8 flex items-center justify-center" title="Duplicate" aria-label="Duplicate" style="border:1px solid rgba(90,82,76,0.1); background:#FFFFFF;"><i data-lucide="copy" class="h-4 w-4"></i></button>
+              <button class="rounded-md w-8 h-8 flex items-center justify-center" title="Remove" aria-label="Remove" style="border:1px solid rgba(90,82,76,0.1); background:#FFFFFF;"><i data-lucide="trash-2" class="h-4 w-4"></i></button>
+            </div>
+          `;
+          const [dupBtn, delBtn] = card.querySelectorAll('button');
+          dupBtn.addEventListener('click', () => { mealsData[currentDay].splice(i+1, 0, {...m}); renderMeals(); if (lucide) lucide.createIcons(); });
+          delBtn.addEventListener('click', () => { mealsData[currentDay].splice(i,1); renderMeals(); if (lucide) lucide.createIcons(); });
+          mealList.appendChild(card);
+        });
+        if (window.lucide) lucide.createIcons();
+      }
+      mealAdd.addEventListener('click', () => {
+        const name = prompt('Meal name (e.g., Oats with fruit):');
+        if (!name) return;
+        const cals = parseInt(prompt('Calories:'), 10);
+        const p = parseInt(prompt('Protein (g):'), 10);
+        const c = parseInt(prompt('Carbs (g):'), 10);
+        const f = parseInt(prompt('Fat (g):'), 10);
+        mealsData[currentDay].push({ name, cals: isNaN(cals)?0:cals, p:isNaN(p)?0:p, c:isNaN(c)?0:c, f:isNaN(f)?0:f });
+        renderMeals();
+      });
+      renderDays();
+      renderMeals();
+
+      // Recommendations
+      const recInput = document.getElementById('rec-input');
+      const recAdd = document.getElementById('rec-add');
+      const recList = document.getElementById('rec-list');
+      let recs = [];
+      function renderRecs() {
+        recList.innerHTML = '';
+        if (!recs.length) {
+          const li = document.createElement('li');
+          li.className = 'text-sm';
+          li.style.color = '#888888';
+          li.textContent = 'No recommendations yet.';
+          recList.appendChild(li);
+          return;
+        }
+        recs.forEach((r, i) => {
+          const li = document.createElement('li');
+          li.className = 'flex items-center justify-between gap-3 rounded-md p-2';
+          li.style.cssText = 'background:#FAFAF7; border:1px solid rgba(90,82,76,0.1);';
+          li.innerHTML = `
+            <label class="flex items-center gap-2 flex-1">
+              <input type="checkbox" ${r.done ? 'checked' : ''} aria-label="Toggle done">
+              <span class="text-sm ${r.done ? 'line-through' : ''}" style="color:#333333;">${r.text}</span>
+            </label>
+            <button class="rounded-md w-8 h-8 flex items-center justify-center shrink-0" aria-label="Delete rec" style="border:1px solid rgba(90,82,76,0.1); background:#FFFFFF;">
+              <i data-lucide="x" class="h-4 w-4"></i>
+            </button>
+          `;
+          li.querySelector('input').addEventListener('change', (e) => { recs[i].done = e.target.checked; renderRecs(); if (lucide) lucide.createIcons(); });
+          li.querySelector('button').addEventListener('click', () => { recs.splice(i,1); renderRecs(); if (lucide) lucide.createIcons(); });
+          recList.appendChild(li);
+        });
+        if (window.lucide) lucide.createIcons();
+      }
+      recAdd.addEventListener('click', () => {
+        let text = recInput?.value || '';
+        if (!text) text = prompt('Recommendation:') || '';
+        if (text.trim()) {
+          recs.unshift({ text: text.trim(), done: false });
+          if (recInput) recInput.value = '';
+          renderRecs();
+        }
+      });
+
+      // Analysis flags
+      const flagList = document.getElementById('flag-list');
+      function computeFlags() {
+        flagList.innerHTML = '';
+        const lastWeight = records.filter(r => r.metric === 'weight').slice(-1)[0]?.value;
+        const firstWeight = records.filter(r => r.metric === 'weight')[0]?.value;
+        const change = lastWeight && firstWeight ? (lastWeight - firstWeight) : 0;
+        const flags = [];
+        if (change > 0.5) flags.push({ icon:'alert-triangle', text:`Weight increased by ${change.toFixed(1)} kg` });
+        if (records.some(r => r.metric === 'glucose' && r.value > 110)) flags.push({ icon:'flask-round', text:'Elevated fasting glucose' });
+        if (!flags.length) flags.push({ icon:'check', text:'No risk flags detected' });
+        flags.forEach(f => {
+          const li = document.createElement('li');
+          li.className = 'flex items-center gap-2';
+          li.innerHTML = `<i data-lucide="${f.icon}" class="h-4 w-4" style="color:#c89143;"></i><span class="text-sm" style="color:#333333;">${f.text}</span>`;
+          flagList.appendChild(li);
+        });
+        if (window.lucide) lucide.createIcons();
+      }
+      computeFlags();
+
+      // Deliverables actions
+      document.getElementById('dl-pdf').addEventListener('click', () => window.print());
+      document.getElementById('copy-link').addEventListener('click', async () => {
+        const url = location.href;
+        try { await navigator.clipboard.writeText(url); alert('Link copied to clipboard'); } catch { alert('Copy failed'); }
+      });
+      document.getElementById('export-json').addEventListener('click', () => {
+        const data = {
+          client: 'Example client',
+          plan: {
+            calories: pCalTarget.textContent,
+            protein: pProteinOut.textContent,
+            carbs: pCarbsOut.textContent,
+            fat: pFatOut.textContent,
+            notes: pNotes.value
+          },
+          measurements: records,
+          recommendations: recs,
+          meals: mealsData
+        };
+        const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'client-plan.json';
+        a.click();
+        URL.revokeObjectURL(a.href);
+      });
+
+      // Ensure today default date
+      document.getElementById('m-date').value = new Date().toISOString().slice(0,10);
+    });
+  </script>
+</body>
+</html>

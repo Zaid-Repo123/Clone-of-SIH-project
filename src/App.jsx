@@ -1,27 +1,34 @@
 // src/App.jsx
 import { Routes, Route } from 'react-router-dom';
-import LandingPage from './Components/LandingPage.jsx';
-import HomePage from './Components/HomePage.jsx';
-import Calendar from './Components/Calender.jsx';
-import Dashboard from './Components/Dashboard.jsx';
-import ClientInfo from './Components/ClientInfo.jsx';
-import ClientProfileView from './Components/ClientProfileView.jsx';
+import Layout from './components/Layout.jsx';
+import LandingPage from './components/LandingPage.jsx';
+import Dashboard from './components/Dashboard.jsx';
+import Calendar from './components/Calender.jsx';
+import ClientPage from './components/ClientPage.jsx';
+import ClientProfilePage from './components/ClientProfilePage.jsx';
+import Messages from './components/Messages.jsx';
 
 function App() {
   return (
-    <Routes>
-      {/* Public routes */}
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/home" element={<HomePage />} />
-      <Route path="/calendar" element={<Calendar />} />
+    <Layout>
+      <Routes>
+        {/* Landing/Home Page */}
+        <Route path="/" element={<LandingPage />} />
+        
+        {/* Dashboard */}
+        <Route path="/dashboard" element={<Dashboard />} />
 
-      {/* Dashboard */}
-      <Route path="/dashboard" element={<Dashboard />} />
+        {/* Calendar */}
+        <Route path="/calendar" element={<Calendar />} />
 
-      {/* Clients Section with nested routes */}
-      <Route path="/clients" element={<ClientInfo />} />
-      <Route path="/clients/:id" element={<ClientProfileView />} />
-    </Routes>
+        {/* Clients Section */}
+        <Route path="/clients" element={<ClientPage />} />
+        <Route path="/clients/:id" element={<ClientProfilePage />} />
+
+        {/* Messages */}
+        <Route path="/messages" element={<Messages />} />
+      </Routes>
+    </Layout>
   );
 }
 
