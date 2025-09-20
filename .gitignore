@@ -1,0 +1,155 @@
+# Node modules# Node modules# Node modules
+
+node_modules/
+
+node_modules/node_modules/
+
+# Build output
+
+dist/
+
+.vite/
+
+.vite-temp/# Build output# Build output
+
+
+
+# Logsdist/dist/
+
+npm-debug.log*
+
+yarn-debug.log*.vite/.vite/
+
+yarn-error.log*
+
+pnpm-debug.log*.vite-temp/.vite-temp/
+
+
+
+# OS files
+
+.DS_Store
+
+Thumbs.db# Logs# Logs
+
+
+
+# Env filesnpm-debug.log*npm-debug.log*
+
+.env
+
+.env.*yarn-debug.log*yarn-debug.log*
+
+
+
+# IDE filesyarn-error.log*yarn-error.log*
+
+.vscode/
+
+.idea/pnpm-debug.log*pnpm-debug.log*
+
+*.suo
+
+*.ntvs*
+
+*.njsproj
+
+*.sln# OS files# OS files
+
+*.sw?
+
+.DS_Store.DS_Store
+
+# Misc
+
+*.logThumbs.dbThumbs.db
+
+*.tgz
+
+
+
+# Optional: ignore local coverage reports
+
+coverage/# Env files# Env files
+
+
+
+# Optional: ignore test output.env.env
+
+/test-results/
+
+.env.*.env.*
+
+# Optional: ignore Mac system files
+
+.AppleDouble
+
+.LSOverride
+
+# IDE files# IDE files
+
+# Optional: ignore Windows system files
+
+$RECYCLE.BIN/.vscode/.vscode/
+
+
+
+# Optional: ignore OneDrive temp files.idea/.idea/
+
+~$*
+
+*.suo*.suo
+
+# Project design files
+
+Design_Templates/*.ntvs**.ntvs*
+
+*.njsproj*.njsproj
+
+*.sln*.sln
+
+*.sw?*.sw?
+
+
+
+# Misc# Misc
+
+*.log*.log
+
+*.tgz*.tgz
+
+
+
+# Optional: ignore local coverage reports# Optional: ignore local coverage reports
+
+coverage/coverage/
+
+
+
+# Optional: ignore test output# Optional: ignore test output
+
+/test-results//test-results/
+
+
+
+# Optional: ignore Mac system files# Optional: ignore Mac system files
+
+.AppleDouble.AppleDouble
+
+.LSOverride.LSOverride
+
+
+
+# Optional: ignore Windows system files# Optional: ignore Windows system files
+
+$RECYCLE.BIN/$RECYCLE.BIN/
+
+
+
+# Optional: ignore OneDrive temp files# Optional: ignore OneDrive temp files
+
+~$*~$*
+
+
+# Project design files
+Design_Templates/
