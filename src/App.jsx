@@ -7,6 +7,7 @@ import Calendar from './components/Calender.jsx';
 import ClientPage from './components/ClientPage.jsx';
 import ClientProfilePage from './components/ClientProfilePage.jsx';
 import Messages from './components/Messages.jsx';
+import MealPlans from './components/MealPlans.jsx';
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
 
         {/* Messages */}
         <Route path="/messages" element={<Messages />} />
+
+        {/* Meal Plans */}
+        <Route path="/meal-plans" element={<MealPlans />} />
       </Routes>
     </Layout>
   );

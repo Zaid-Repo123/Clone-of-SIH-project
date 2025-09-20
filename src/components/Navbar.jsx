@@ -109,6 +109,16 @@ const Navbar = () => {
           <circle cx="9" cy="7" r="4"></circle>
         </svg>
       )
+    },
+    {
+      path: '/meal-plans',
+      label: 'Meal Plans',
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-[#4a403a]">
+          <path d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z"></path>
+          <path d="M6 17h12"></path>
+        </svg>
+      )
     }
   ];
 
@@ -174,28 +184,6 @@ const Navbar = () => {
                   </Link>
                 </li>
               ))}
-              
-              {/* Static menu items */}
-              <li>
-                <a href="#" className="group flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-[#4a403a]/5 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#a3b98b] transition-all duration-200 hover:scale-105">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-[#4a403a]">
-                    <path d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z"></path>
-                    <path d="M6 17h12"></path>
-                  </svg>
-                  <span>Meal Plans</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" className="group flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-[#4a403a]/5 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#a3b98b] transition-all duration-200 hover:scale-105">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-[#4a403a]">
-                    <path d="M3 3v16a2 2 0 0 0 2 2h16"></path>
-                    <path d="M18 17V9"></path>
-                    <path d="M13 17V5"></path>
-                    <path d="M8 17v-3"></path>
-                  </svg>
-                  <span>Analytics</span>
-                </a>
-              </li>
             </ul>
           </nav>
 
