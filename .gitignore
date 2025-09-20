@@ -1,155 +1,59 @@
-# Node modules# Node modules# Node modules
-
+# Node modules
 node_modules/
 
-node_modules/node_modules/
-
 # Build output
-
 dist/
-
 .vite/
+.vite-temp/
 
-.vite-temp/# Build output# Build output
-
-
-
-# Logsdist/dist/
-
+# Logs
 npm-debug.log*
-
-yarn-debug.log*.vite/.vite/
-
+yarn-debug.log*
 yarn-error.log*
-
-pnpm-debug.log*.vite-temp/.vite-temp/
-
-
+pnpm-debug.log*
 
 # OS files
-
 .DS_Store
+Thumbs.db
 
-Thumbs.db# Logs# Logs
-
-
-
-# Env filesnpm-debug.log*npm-debug.log*
-
+# Env files
 .env
+.env.*
 
-.env.*yarn-debug.log*yarn-debug.log*
-
-
-
-# IDE filesyarn-error.log*yarn-error.log*
-
+# IDE files
 .vscode/
-
-.idea/pnpm-debug.log*pnpm-debug.log*
-
+.idea/
 *.suo
-
 *.ntvs*
-
 *.njsproj
-
-*.sln# OS files# OS files
-
+*.sln
 *.sw?
 
-.DS_Store.DS_Store
-
 # Misc
-
-*.logThumbs.dbThumbs.db
-
+*.log
 *.tgz
 
-
-
 # Optional: ignore local coverage reports
+coverage/
 
-coverage/# Env files# Env files
-
-
-
-# Optional: ignore test output.env.env
-
+# Optional: ignore test output
 /test-results/
 
-.env.*.env.*
-
 # Optional: ignore Mac system files
-
 .AppleDouble
-
 .LSOverride
 
-# IDE files# IDE files
-
 # Optional: ignore Windows system files
+$RECYCLE.BIN/
 
-$RECYCLE.BIN/.vscode/.vscode/
-
-
-
-# Optional: ignore OneDrive temp files.idea/.idea/
-
+# Optional: ignore OneDrive temp files
 ~$*
-
-*.suo*.suo
-
-# Project design files
-
-Design_Templates/*.ntvs**.ntvs*
-
-*.njsproj*.njsproj
-
-*.sln*.sln
-
-*.sw?*.sw?
-
-
-
-# Misc# Misc
-
-*.log*.log
-
-*.tgz*.tgz
-
-
-
-# Optional: ignore local coverage reports# Optional: ignore local coverage reports
-
-coverage/coverage/
-
-
-
-# Optional: ignore test output# Optional: ignore test output
-
-/test-results//test-results/
-
-
-
-# Optional: ignore Mac system files# Optional: ignore Mac system files
-
-.AppleDouble.AppleDouble
-
-.LSOverride.LSOverride
-
-
-
-# Optional: ignore Windows system files# Optional: ignore Windows system files
-
-$RECYCLE.BIN/$RECYCLE.BIN/
-
-
-
-# Optional: ignore OneDrive temp files# Optional: ignore OneDrive temp files
-
-~$*~$*
-
 
 # Project design files
 Design_Templates/
+
+# Test and setup scripts
+test-setup.js
+
+# Screenshots directory (can be included if you want to track them)
+# screenshots/

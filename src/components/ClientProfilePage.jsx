@@ -323,7 +323,7 @@ const ClientProfilePage = () => {
     ].reduce((acc, id) => { acc[id] = document.getElementById(id); return acc; }, {});
     
     function computePlan() {
-        const [pWeight, pGoal, pHeight, pAge, pSex, pActivity, pGoalType, pProtein, pFat, pNotes] = planningInputs.map(el => el?.value);
+        const [pWeight, , pHeight, pAge, pSex, pActivity, pGoalType, pProtein, pFat, pNotes] = planningInputs.map(el => el?.value);
         const w = parseFloat(pWeight) || 0;
         const h = parseFloat(pHeight) || 0;
         const age = parseFloat(pAge) || 0;
